@@ -66,6 +66,19 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo1"
+                   aria-expanded="true" aria-controls="collapseTwo1">
+                    <i class="fas fa-car-battery text-success"></i>
+                    <span>Service</span>
+                </a>
+                <div id="collapseTwo1" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="py-2 collapse-inner rounded">
+                        <a class="collapse-item" href=" {{route('service.index')}} ">Services</a>
+                        <a class="collapse-item" href=" {{route('service.create')}} ">Add Services</a>
+                    </div>
+                </div>
+            </li>
         </ul>
 
     </div>
@@ -81,13 +94,13 @@
                     <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
                     </svg>
                     </button>
-                    
-                
+
+
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
 
-                  
+
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
@@ -98,16 +111,16 @@
                         </div>
                     </form>
 
-                 
+
                     <ul class="navbar-nav ml-auto">
 
-                
+
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
-                           
+
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                 aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
@@ -125,15 +138,15 @@
                             </div>
                         </li>
 
-                     
+
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
-                             
+
                                 <span class="badge badge-danger badge-counter">4+</span>
                             </a>
-                          
+
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
@@ -149,14 +162,14 @@
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                             </div>
                         </li>
-                     
+
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-user"></i>
                                 <i class="fas fa-chevron-down fa-down"></i>
                             </a>
-                          
+
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
@@ -168,8 +181,8 @@
                                     Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
-                               
-                                    
+
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -180,17 +193,17 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                
+
                             </div>
                         </li>
 
                     </ul>
 
                 </nav>
- 
+
                 <div class="container-fluid content">
 
-                   
+
 
                     <div class="boxes">
                         <div class="row">
@@ -203,11 +216,11 @@
                                                 <h4>Total Product</h4>
                                             </div>
                                             <div class="box-content">
-                                                <p class="text-info">2000</p> 
+                                                <p class="text-info">2000</p>
                                             </div>
                                         </div>
 
-                                        <div class="col"> 
+                                        <div class="col">
                                             <i class="fas fa-copy icon-box text-info"></i>
                                         </div>
                                     </div>
@@ -223,11 +236,11 @@
                                                 <h4>Total Product</h4>
                                             </div>
                                             <div class="box-content">
-                                                <p class="text-info">2000</p> 
+                                                <p class="text-info">2000</p>
                                             </div>
                                         </div>
 
-                                        <div class="col"> 
+                                        <div class="col">
                                             <i class="fas fa-copy icon-box text-info"></i>
                                         </div>
                                     </div>
@@ -243,11 +256,11 @@
                                                 <h4>Total Product</h4>
                                             </div>
                                             <div class="box-content">
-                                                <p class="text-info">2000</p> 
+                                                <p class="text-info">2000</p>
                                             </div>
                                         </div>
 
-                                        <div class="col"> 
+                                        <div class="col">
                                             <i class="fas fa-copy icon-box text-info"></i>
                                         </div>
                                     </div>
@@ -258,8 +271,8 @@
                     @yield('content')
 
 
-                    
-                
+
+
 
                 </div>
             </div>
@@ -276,7 +289,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-    
+
 
 
 
