@@ -31,8 +31,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label></label>
-                    <input type="text" name="coverImage" value="{{$product->coverImage}}" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                    <label for="">Choose Product Cover Image</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="coverImage"  value="{{$product->coverImage}}" id="customFile">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
                     @error('coverImage')
                     <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
                     @enderror
@@ -44,9 +47,6 @@
                     <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
                     @enderror
                 </div>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
 
                 {!! Form::submit('Update Product',['class'=>'btn btn-primary shadow']) !!}
                 {!! Form::close() !!}

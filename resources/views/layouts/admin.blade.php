@@ -52,6 +52,11 @@
                     <i class="fas fa-fw fa-tachometer-alt text-info icon-nav"></i>
                     <span>Dashboard</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('message.index')}}">
+                    <i class="fas fa-envelope text-primary icon-nav"></i>
+                    <span>Message</span></a>
+            </li>
             <!-- <hr class="sidebar-divider"> -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -79,6 +84,8 @@
                     </div>
                 </div>
             </li>
+
+
         </ul>
 
     </div>

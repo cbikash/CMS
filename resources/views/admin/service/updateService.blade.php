@@ -25,7 +25,7 @@
                 <div class="form-group">
                     <label for="">Choose Service Cover Image</label>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="coverImage" value="{{$service->coverImage}}" id="customFile">
+                        <input type="file" class="custom-file-input" name="coverImage"  value="{{$service->coverImage}}" id="customFile">
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                     @error('coverImage')

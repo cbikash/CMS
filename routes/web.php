@@ -25,4 +25,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware'=>'auth'], function (){
     Route::resource('/admin/product',ProductController::class);
     Route::resource('/admin/service',\App\Http\Controllers\ServiceController::class);
+    Route::resource('/admin/message',\App\Http\Controllers\MessageController::class);
 });

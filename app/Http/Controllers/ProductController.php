@@ -55,8 +55,28 @@ class ProductController extends Controller
     }
     public function update(ProductRequest $productRequest,Product $product){
         $input=$productRequest->all();
+
+        if($file=$productRequest->file('coverImage')){
+            $this->deleteoldimage($product);
+            $filename=$file->getClientOriginalName();
+            $path= Image::make($file->getRealPath());
+            $path->fit(600,400);
+            $path->save(storage_path('app/public/product/'.$filename));
+            $input['coverImage']=$filename;
+            if($path){
+                $file->storeAs('gallery',$filename,'public');
+            }
+        }
+
         $product->update($input);
         return redirect(route('product.index'));
+    }
+
+
+    protected function deleteoldimage($file){
+        if($path=$file->path){
+            Storage::delete('public/service/'.$path);
+        }
     }
 
 
