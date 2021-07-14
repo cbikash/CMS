@@ -20,6 +20,11 @@ class EnquiryController extends Controller
 
     }
     public function show(Enquiry $enquiry){
+         if($enquiry->seen == 0){
+            $enquiry->update([
+                'seen'=>'1',
+            ]);
+        }
 
         return view('admin.enquiry.show',compact('enquiry'));
     }

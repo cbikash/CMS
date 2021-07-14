@@ -16,11 +16,12 @@
 
     <div class="row">
         <div class="col-sm-12 col-lg-12 col-xl-12">
-
-            <div class="search-custom">
-                <p class="text-success">All Message</p>
-            </div>
-            <div class="flex-class"></div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
+                <li class="breadcrumb-item active " aria-current="page">Message</a></li>
+            </ol>
+        </nav>
         </div>
 
         <div class="col-sm-12 col-lg-12 col-xl-12">
@@ -36,22 +37,32 @@
                         <th scope="col">Email</th>
                         <th scope="col">Message Details</th>
                         <th scope="col">Action</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Delete</th>
 
                     </tr>
                     </thead>
+                      <style>
+                          .unseen-class{
+                              background-color: #2a4c98;
+                              color: white;
+                          }
+
+                      </style>
                     <tbody>
                     @foreach($messages as $message)
-                        <tr>
+                        <tr class=" @if($message->seen == "0") unseen-class @endif">
                             <th scope="row">{{  $loop->iteration  }}</th>
                             <td>{{$message->name}}</td>
                             <td>{{$message->address}}</td>
                             <td>{{$message->contact}}</td>
                             <td>{{$message->email}}</td>
-                            <td>{{ Str::limit($message->description, 50)}}</td>
+                            <td>{{ Str::limit($message->message, 50)}}</td>
                             <td>
                                 <a href="{{route('message.show', $message)}}" class="text-success"> <i class="fas fa-eye"></i></a>
-                           </td><td>
+                           </td>
+                           <td> @if($message->seen == "0") unseen @else Seen @endif</td>
+                           <td>
                                 {!! Form::open(['method'=>'DELETE', 'action'=>['App\Http\Controllers\MessageController@destroy', $message]]) !!}
                                 @csrf
                                 <button CLASS="btn btn-danger"><i class="fas fa-trash"></i></button>

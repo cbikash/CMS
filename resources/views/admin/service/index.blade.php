@@ -10,11 +10,14 @@
 
     <div class="row">
         <div class="col-sm-12 col-lg-12 col-xl-12">
-            <div class="search-custom">
-                <p>All Services <span><a href="{{route('service.create')}}">Add Service</a> </span></p>
-            </div>
-            <div class="flex-class"></div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
+                <li class="breadcrumb-item active">Service (<a href="{{route('service.create')}}">Add Service</a>)</li>
+            </ol>
+        </nav>
         </div>
+       
 
         <div class="col-sm-12 col-lg-12 col-xl-12">
             <div class="body-content">

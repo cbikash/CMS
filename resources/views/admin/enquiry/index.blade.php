@@ -15,13 +15,15 @@
     </style>
 
     <div class="row">
-        <div class="col-sm-12 col-lg-12 col-xl-12">
-
-            <div class="search-custom">
-                <p class="text-success">All Enquiry</p>
-            </div>
-            <div class="flex-class"></div>
+       <div class="col-sm-12 col-lg-12 col-xl-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
+                <li class="breadcrumb-item active " aria-current="page">Enquiry</a></li>
+            </ol>
+        </nav>
         </div>
+
 
         <div class="col-sm-12 col-lg-12 col-xl-12">
             <div class="body-content">
@@ -35,7 +37,9 @@
                         <th scope="col">Address</th>
                         <th scope="col">Email</th>
                         <th scope="col">Message Details</th>
+                        <th scope="col">Product</th>
                         <th scope="col">Action</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Delete</th>
 
                     </tr>
@@ -45,14 +49,18 @@
                         <tr>
                             <th scope="row">{{  $loop->iteration  }}</th>
                             <td>{{$enquiry->name}}</td>
-                            <td>{{$enquiry->address}}</td>
                             <td>{{$enquiry->phone}}</td>
+                            <td>{{$enquiry->address}}</td>
                             <td>{{$enquiry->email}}</td>
-                            <td>{{$enquiry->product->title}}</td>
                             <td>{{ Str::limit($enquiry->message, 50)}}</td>
+                            <td><a href="{{ route("product.show",$enquiry->product->id) }}">{{$enquiry->product->title}} </a></td>
                             <td>
-                                <a href="{{route('message.show', $enquiry)}}" class="text-success"> <i class="fas fa-eye"></i></a>
-                            </td><td>
+                                <a href="{{route('enquiry.show', $enquiry)}}" class="text-success"> <i class="fas fa-eye"></i></a>
+                            </td>
+                            <td> 
+                                @if($enquiry->status == 0) unseen @else seen @endif
+                            </td>
+                            <td>
                                 {!! Form::open(['method'=>'DELETE', 'action'=>['App\Http\Controllers\EnquiryController@destroy', $enquiry]]) !!}
                                 @csrf
                                 <button CLASS="btn btn-danger"><i class="fas fa-trash"></i></button>

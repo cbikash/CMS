@@ -23,7 +23,7 @@ class Enquiry extends Model
      */
     public function product()
     {
-        return $this->hasOne(Product::class);
+        return $this->belongsTo('App\Models\Product');
     }
 
 }

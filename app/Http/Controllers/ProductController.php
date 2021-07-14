@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -17,7 +18,8 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('admin.product.addProduct');
+        $categories=Category::all();
+        return view('admin.product.addProduct',compact('categories'));
     }
     public function store(ProductRequest $productRequest){
         $input=$productRequest->all();

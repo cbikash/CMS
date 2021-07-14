@@ -67,6 +67,10 @@ class ServiceController extends Controller
         return redirect(route('service.index'));
 
     }
+    public function show($id){
+        $service = Service::find($id);
+        return view('admin.service.show',compact('service'));
+    }
 
 
 }

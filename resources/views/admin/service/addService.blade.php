@@ -8,6 +8,15 @@
     </style>
     <div class="row">
         <div class="container">
+        <div class="col-sm-12 col-lg-12 col-xl-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
+                <li class="breadcrumb-item"><a href=" {{ route('service.index') }} ">Service</a></li>
+                <li class="breadcrumb-item active " aria-current="page">Add Service</li>
+            </ol>
+        </nav>
+        </div>
             <div class="col-md-12 col-space">
                 <h3>Add Service</h3>
                 <hr>

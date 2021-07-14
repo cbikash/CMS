@@ -26,7 +26,11 @@ class MessageController extends Controller
      */
     public function show(Message $message)
     {
-
+        if($message->seen == 0){
+            $message->update([
+                'seen'=>'1',
+            ]);
+        }
         return view('admin.message.showDetails',compact('message'));
     }
 

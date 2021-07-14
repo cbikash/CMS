@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->longText('description');
             $table->string('slug')->unique();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            // $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('category_id')->on('categories');
             $table->integer('deleted')->default('0');
             $table->timestamps();
         });

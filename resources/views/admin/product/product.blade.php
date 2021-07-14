@@ -9,12 +9,16 @@
     </style>
 
     <div class="row">
-                        <div class="col-sm-12 col-lg-12 col-xl-12">
-                            <div class="search-custom">
-                                <p>All Product <span><a href="{{route('product.create')}}">Add Product</a> </span></p>
-                            </div>
-                            <div class="flex-class"></div>
-                        </div>
+        <div class="col-sm-12 col-lg-12 col-xl-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
+                <li class="breadcrumb-item active " aria-current="page">Product (<a href="{{route('product.create')}}">Add Product</a>)</li>
+            </ol>
+        </nav>
+        </div>
+        
+                        
 
                         <div class="col-sm-12 col-lg-12 col-xl-12">
                          <div class="body-content">
