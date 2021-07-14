@@ -35,7 +35,7 @@
                             <tbody>
                             @foreach($productlists as $productlist)
                                 <tr>
-                                <th scope="row">1</th>
+                                <th scope="row">{{  $loop->iteration  }}</th>
                                 <td>{{$productlist->title}}</td>
                                 <td>{{$productlist->price}}</td>
                                 <td>{{$productlist->unit}}</td>

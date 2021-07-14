@@ -18,7 +18,7 @@
         <div class="col-sm-12 col-lg-12 col-xl-12">
 
             <div class="search-custom">
-                <p class="text-success">All Message</p>
+                <p class="text-success">All Enquiry</p>
             </div>
             <div class="flex-class"></div>
         </div>
@@ -41,18 +41,19 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($messages as $message)
+                    @foreach($enqueries as $enquiry)
                         <tr>
                             <th scope="row">{{  $loop->iteration  }}</th>
-                            <td>{{$message->name}}</td>
-                            <td>{{$message->address}}</td>
-                            <td>{{$message->contact}}</td>
-                            <td>{{$message->email}}</td>
-                            <td>{{ Str::limit($message->description, 50)}}</td>
+                            <td>{{$enquiry->name}}</td>
+                            <td>{{$enquiry->address}}</td>
+                            <td>{{$enquiry->phone}}</td>
+                            <td>{{$enquiry->email}}</td>
+                            <td>{{$enquiry->product->title}}</td>
+                            <td>{{ Str::limit($enquiry->message, 50)}}</td>
                             <td>
-                                <a href="{{route('message.show', $message)}}" class="text-success"> <i class="fas fa-eye"></i></a>
-                           </td><td>
-                                {!! Form::open(['method'=>'DELETE', 'action'=>['App\Http\Controllers\MessageController@destroy', $message]]) !!}
+                                <a href="{{route('message.show', $enquiry)}}" class="text-success"> <i class="fas fa-eye"></i></a>
+                            </td><td>
+                                {!! Form::open(['method'=>'DELETE', 'action'=>['App\Http\Controllers\EnquiryController@destroy', $enquiry]]) !!}
                                 @csrf
                                 <button CLASS="btn btn-danger"><i class="fas fa-trash"></i></button>
                                 {!! Form::close() !!}
@@ -66,7 +67,7 @@
 
             </div>
             <div class="pagination-custom">
-                {{ $messages->links() }}
+                {{ $enqueries ?? ''->links() }}
             </div>
         </div>
     </div>

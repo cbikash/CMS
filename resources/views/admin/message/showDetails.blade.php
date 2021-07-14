@@ -9,7 +9,6 @@
     <div class="row">
 
         <div class="col-sm-12 col-lg-12 col-xl-12">
-
             <div class="body-content">
                 <br>
                 <h3 class="hd-message"> Message Details</h3>

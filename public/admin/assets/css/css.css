@@ -135,10 +135,8 @@
  }
 
  .search-custom p{
-     margin-left: 50px;
-     padding-left: 10px;
+
      font-size: 30px;
-     border-left: 2px solid #c5bdbd;
-     border-bottom: 2px solid #c5bdbd;
+      border-bottom: 2px solid #c5bdbd;
 
  }
