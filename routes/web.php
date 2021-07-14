@@ -24,6 +24,7 @@ Route::group(['middleware'=>'auth'], function (){
     Route::resource('/admin/message',\App\Http\Controllers\MessageController::class);
     Route::resource('/admin/enquiry',\App\Http\Controllers\EnquiryController::class);
     Route::resource('/admin/category',\App\Http\Controllers\CategoryController::class);
+    Route::resource('/admin/about',\App\Http\Controllers\AboutController::class);
     
 });
 

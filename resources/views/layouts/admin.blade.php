@@ -65,6 +65,20 @@
             </li>
             <!-- <hr class="sidebar-divider"> -->
             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoc"
+                   aria-expanded="true" aria-controls="collapseTwo1">
+                    <i class="fas fa-angle-double-right text-info"></i>
+                    <span>Category</span>
+                </a>
+                <div id="collapseTwoc" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="py-2 collapse-inner rounded">
+                        <a class="collapse-item" href=" {{route('category.index')}} ">Category</a>
+                        <a class="collapse-item" href=" {{route('category.create')}} ">Add Category</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                    <i class="fas fa-hotdog text-danger"></i>
@@ -77,6 +91,7 @@
                     </div>
                 </div>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo1"
                    aria-expanded="true" aria-controls="collapseTwo1">
@@ -92,18 +107,20 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoc"
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoab"
                    aria-expanded="true" aria-controls="collapseTwo1">
-                    <i class="fas fa-angle-double-right text-info"></i>
-                    <span>Category</span>
+                    <i class="fas fa-angle-double-right text-secondary"></i>
+                    <span>About</span>
                 </a>
-                <div id="collapseTwoc" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwoab" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="py-2 collapse-inner rounded">
-                        <a class="collapse-item" href=" {{route('category.index')}} ">Category</a>
-                        <a class="collapse-item" href=" {{route('category.create')}} ">Add Category</a>
+                        <a class="collapse-item" href=" {{route('about.index')}} ">About</a>
+                        <a class="collapse-item" href=" {{route('about.create')}} ">Add About</a>
                     </div>
                 </div>
             </li>
+
+            
         </ul>
 
     </div>
