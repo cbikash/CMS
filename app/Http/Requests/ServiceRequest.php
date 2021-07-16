@@ -25,7 +25,7 @@ class ServiceRequest extends FormRequest
     {
         return [
             'title'=>'max:200|required',
-            'description'=>'max:100 | required',
+            'description'=>'max:500 | required',
             'coverImage' =>'image|mimes:jpeg,png,bmp,gif,svg or webp',
         ];
     }

@@ -38,10 +38,13 @@
                     <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
                     @enderror
                 </div>
-                  <div class="form-check">
+                @if ($about->home == 0)
+                     <div class="form-check">
                     <input type="checkbox" name="feature" value="1" class="form-check-input" id="exampleCheck1" @if($about->feature == 1) checked @endif>
                     <label class="form-check-label" for="exampleCheck1">Feature Content</label>
                 </div>
+                @endif
+                 
                 <br>
 
                 {!! Form::submit('Update About',['class'=>'btn btn-success shadow']) !!}

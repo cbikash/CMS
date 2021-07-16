@@ -16,7 +16,8 @@ class AboutController extends Controller
 
     public function create()
     {
-        return view('admin.about.create');
+        $counth=About::where("home",'1')->count();
+        return view('admin.about.create',compact('counth'));
     }
 
   
@@ -26,7 +27,18 @@ class AboutController extends Controller
         $about = new About();
         $about->title = $request->title;
         $about->content = $request->content;
-        $about->feature = $request->feature;
+        $about->content = $request->content;
+        $about->home = $request->home;
+
+        if($request->home == ""){
+            $about->home = "0";
+        }
+         if($request->feature == ""){
+            $about->feature = "0";
+            
+        }
+             
+
         $about->save();
         return redirect(route('about.index'));
     }
@@ -46,10 +58,21 @@ class AboutController extends Controller
     
     public function update(Request $request, About $about)
     {
+        
         $this->validate($request, [ 'title' => 'required', 'content' => 'required' ]);
         $about->title = $request->title;
         $about->content = $request->content;
+        $about->home = $request->home;
         $about->feature = $request->feature;
+         if($request->home == ""){
+            $about->home = "0";
+        }
+        if($request->feature == ""){
+            $about->feature = "0";
+        }
+        
+        
+       
         $about->save();
         return redirect(route('about.index'));
     }

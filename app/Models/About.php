@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class About extends Model
 {
     use HasFactory;
-    protected $filables = ['title', 'content','feature'];
+    protected $filables = ['title', 'content','feature','home'];
 }

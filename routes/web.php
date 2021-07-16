@@ -32,5 +32,12 @@ Route::group(['middleware'=>'auth'], function (){
 
 Route::group(['middleware'=>'web'], function (){
     Route::get('/', [FrontendController::class,'index'])-> name('front');
-
+    Route::get('/about', [FrontendController::class,'about'])-> name('front.about');
+    Route::get('/contact', [FrontendController::class,'contact'])-> name('front.contact');
+    Route::get('/services', [FrontendController::class,'services'])-> name('front.services');
+    Route::get('/products', [FrontendController::class,'products'])-> name('front.products');
+    Route::get('/enquiry', [FrontendController::class,'enquiry'])-> name('front.enquiry');
+    Route::get('/product/{product:slug}', [FrontendController::class,'product'])-> name('front.product');
+    Route::get('/product/search/data/', [FrontendController::class,'productsearch'])-> name('front.product.search');
+    Route::get('/product/category/{category:slug}', [FrontendController::class,'productcategory'])-> name('front.product.category');
 });

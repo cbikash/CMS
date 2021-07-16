@@ -12,8 +12,8 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
-                <li class="breadcrumb-item"><a href=" {{ route('product.index') }} ">product</a></li>
-                <li class="breadcrumb-item active " aria-current="page">Update Product</li>
+                <li class="breadcrumb-item"><a href=" {{ route('about.index') }} ">About</a></li>
+                <li class="breadcrumb-item active " aria-current="page">Create About</li>
             </ol>
         </nav>
         </div>
@@ -42,6 +42,13 @@
                     <input type="checkbox" name="feature" value="1" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Feature Content</label>
                 </div>
+                @if ($counth != 1)
+                     <div class="form-check">
+                    <input type="checkbox" name="home" value="1" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Home Page Content</label>
+                </div>
+                @endif
+               
                 <br>
 
                 {!! Form::submit('Add Product',['class'=>'btn btn-success shadow']) !!}

@@ -42,7 +42,7 @@
                                 <td>{{$about->title}}</td>
                                
                                     <td>{{ Str::limit($about->content, 50)}}</td>
-                                    <td>@if($about->feature == 1) featured @else - @endif</td>
+                                    <td>@if($about->feature == 1) featured @endif @if($about->home == 1) Home @endif</td>
                                     <td>
                                         <a href="{{route('about.show', $about)}}" class="text-success"> <i class="fas fa-eye"></i></a>
                                         <a href="{{route('about.edit', $about)}}" class="text-info"> <i class="fas fa-pencil-alt"></i></a>

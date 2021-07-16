@@ -18,6 +18,7 @@ class CreateAboutsTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->tinyInteger('feature')->default(0);
+            $table->tinyInteger('home')->default(0);
             $table->timestamps();
         });
     }
