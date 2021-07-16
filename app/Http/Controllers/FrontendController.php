@@ -7,6 +7,8 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\About;
 use App\Models\Service;
+use App\Http\Requests\MessageRequest;
+use App\Models\Message;
 
 class FrontendController extends Controller
 {
@@ -24,10 +26,15 @@ class FrontendController extends Controller
     }
 
     public function contact(){
-
+        
         return view('frontend.home.contact');
     }
 
+
+    public function storemessage(MessageRequest $request){
+        Message::create($request->all());
+        return (redirect(route('front.enquiry')))->with('messageafter',"Thank you for messaging us");
+    }
 
     public function services(){
         $services=Service::all();
@@ -70,6 +77,8 @@ class FrontendController extends Controller
         return view('frontend.home.__partial.productCategory',compact('products','categories','activeCategory'));
 
     }
+    
+    
 
 
 }

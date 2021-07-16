@@ -31,12 +31,28 @@
                         @enderror
                     </div>
                 </div>
-                <div class="form-group">
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
                     <label>Unit</label>
                     <input type="text" name="unit" value="{{$product->unit}}" class="form-control" placeholder="Enter the unit">
                     @error('unit')
                     <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
                     @enderror
+                    </div>
+                
+                    <div class="form-group col-md-6">
+                        <label>Category</label>
+                        <select name="category_id" class="form-control">
+                            <option value="">Select Category</option>
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}" @if($product->category_id == $category->id) Selected @endif>{{$category->name}}</option>
+                            @endforeach
+                        </select>
+                        @error('category_id')
+                        <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
+                        @enderror
+                    </div>
                 </div>
 
                 <div class="form-group">

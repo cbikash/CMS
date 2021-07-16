@@ -120,11 +120,11 @@
          <div class="col-sm-12 col-md-4 col-lg-4 col-f">
            <h3><span class="div-line">Discover</span></h3>
            <ul class="list-group list-group-flush dis">
-            <li class="list-group-item "><a href="#">Home</a></li>
-            <li class="list-group-item"><a href="#">About</a></li>
-            <li class="list-group-item"><a href="#">Contact</a></li>
-            <li class="list-group-item"><a href="#">Enquery</a></li>
-            <li class="list-group-item"><a href="#">Products</a></li>
+            <li class="list-group-item "><a href="{{route('front')}}">Home</a></li>
+            <li class="list-group-item"><a href="{{route('front.about')}}">About</a></li>
+            <li class="list-group-item"><a href="{{route('front.contact')}}">Contact</a></li>
+            <li class="list-group-item"><a href="{{route('front.enquiry')}}">Enquery</a></li>
+            <li class="list-group-item"><a href="{{route('front.products')}}">Products</a></li>
           </ul>
          </div>
          <div class="col-sm-12 col-md-4 col-lg-4 col-f">

@@ -537,3 +537,18 @@ background-color: rgb(0 22 101 / 65%);
     text-decoration: none;
      border:2px solid rgb(255, 166, 0);
   }
+
+
+.btn-message{
+        padding: 10px 20px;
+        background-color: #FF5326;
+        border:2px solid #FF5326;
+        color:white;
+    }
+    .btn-message:hover{
+        transition: 1s;
+        border:2px solid #FF5326;
+        color:#FF5326;
+        background: #fff;
+        cursor: pointer;
+    }

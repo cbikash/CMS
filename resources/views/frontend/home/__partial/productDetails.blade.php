@@ -1,6 +1,5 @@
 @extends('frontend.index')
 @section('content')
-
 <section>
   <div class="top-section">
     <div class="container">

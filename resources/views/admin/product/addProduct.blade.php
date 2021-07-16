@@ -56,6 +56,10 @@
                             <option value="{{$category->id}}">{{$category->name}}</option>
                         @endforeach
                     </select>
+                     @error('category_id')
+                    <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
+                    @enderror
+
                 
                 </div>
 

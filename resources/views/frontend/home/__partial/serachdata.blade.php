@@ -3,11 +3,11 @@
   
  
       <div class="col-md-4">
-                    <a href="#" class="prod-a">
-                    <div class="card-product">
-                    <div class="card" style="width: 100%;">
-                    <img class="card-img-top" style="height: 140px;" src="asset/p1.jpg" alt="Card image cap">
-                    <div class="card-body center">
+                   <a href="{{route('front.product', $product)}}" class="prod-a">
+                        <div class="card-product">
+                        <div class="card" style="width: 100%;">
+                        <img class="card-img-top" style="height: 140px;" src="{{asset('storage/gallery/'.$product->coverImage)}}" alt="Card image cap">
+                        <div class="card-body center">
                         <h5 class="card-title">{{$product->title}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">NRP {{$product->price}} Per {{$product->unit}}</h6> 
                         <br>

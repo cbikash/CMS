@@ -1,15 +1,14 @@
 @extends('frontend.index')
 @section('content')
 
-
 <section>
 
 <div class="top-section">
     <div class="container">
         <div class="top-section-main">
             <div class="top-section-desc">
-                <h5>Enquiry</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
+                <h5>Message us</h5>
+                <p>If you have any query.please message us we will response you as soon as possible.</p>
             </div>
         </div>
     </div>
@@ -24,31 +23,54 @@
                     <h2>Message Us</h2>
                     <p>If you have any enquery about us. Feel free to Message us. we will respond you as soon as possible.</p>
                     <br>
-                    <form>
+                    @if (session('messageafter'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            Thank you for messaging us.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                    @endif
+                     {!! Form::open(['method'=>'post','action'=>'App\Http\Controllers\FrontendController@storemessage'])!!}
+                     @csrf
                         <div class="form-group">
                             <label for="inputAddress">Name</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Enter Your Name">
+                            <input type="text" name="name" value="{{ old('name')}}" class="form-control" id="inputAddress" placeholder="Enter Your Name">
+                         @error('name')
+                    <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
+                    @enderror
                         </div>
                         <div class="form-group">
                             <label for="inputAddress2">Address</label>
-                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                            <input type="text" name="address" value="{{old('address')}}" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                         @error('address')
+                    <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
+                    @enderror
                         </div>
                         <div class="form-group">
                             <label for="inputAddress2">Email</label>
-                            <input type="email" class="form-control" id="inputAddress2" placeholder="Enter you Email">
+                            <input type="email" name="email" value="{{old('email')}}" class="form-control" id="inputAddress2" placeholder="Enter you Email">
+                        @error('email')
+                    <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
+                    @enderror
                         </div>
                         <div class="form-group">
                             <label for="inputAddress2">Contact</label>
-                            <input type="text" class="form-control" id="inputAddress2" placeholder="Contact Number">
+                            <input type="text" name="contact" value="{{old('contact')}}" class="form-control" id="inputAddress2" placeholder="Contact Number">
+                             @error('contact')
+                    <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
+                    @enderror
                         </div>
                          <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Example textarea</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <label for="exampleFormControlTextarea1">Your Message</label>
+                            <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="4">{{old('message')}}</textarea>
+                             @error('message')
+                            <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
+                            @enderror
                         </div>
-
-                    
-                        <button type="submit" class="btn btn-success">Send Enquery</button>
-                        </form>
+   
+                         {!! Form::submit('Send Message',['class'=>'btn-message shadow']) !!}
+                        {!! Form::close() !!}
                 </div>
             </div>
             <div class="col-md-3">

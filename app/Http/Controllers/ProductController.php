@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use Illuminate\Http\Request;
+
 
 class ProductController extends Controller
 {
@@ -53,10 +55,13 @@ class ProductController extends Controller
 
     public function edit($id){
         $product=Product::find($id);
-        return view('admin.product.updateProduct',compact('product'));
+         $categories=Category::all();
+        return view('admin.product.updateProduct',compact('product','categories'));
     }
-    public function update(ProductRequest $productRequest,Product $product){
+    public function update(Request $productRequest,Product $product){
+        $productRequest->validate(['title'=>'required','description'=>'required','price'=>'required']);
         $input=$productRequest->all();
+        $input['slug'] = Str::slug($productRequest->title);
 
         if($file=$productRequest->file('coverImage')){
             $this->deleteoldimage($product);

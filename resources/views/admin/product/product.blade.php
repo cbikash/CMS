@@ -59,8 +59,6 @@
                             </tbody>
                             </table>
 
-
-
                          </div>
                         <div class="pagination-custom">
                             {{ $productlists->links() }}

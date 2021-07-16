@@ -116,7 +116,7 @@
 <script>
      $(document).ready(function(){
 
-         $('#btn-search').click(function(evt){
+         $('#search-data').keyup(function(evt){
              evt.preventDefault();
             
                var search = $('#search-data').val();
