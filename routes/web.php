@@ -35,6 +35,7 @@ Route::group(['middleware'=>'web'], function (){
     Route::get('/about', [FrontendController::class,'about'])-> name('front.about');
     Route::get('/contact', [FrontendController::class,'contact'])-> name('front.contact');
     Route::post('/contact/message', [FrontendController::class,'storemessage']);
+    Route::post('/enquery/product',[FrontendController::class,'storeenquery']);
     Route::get('/services', [FrontendController::class,'services'])-> name('front.services');
     Route::get('/products', [FrontendController::class,'products'])-> name('front.products');
     Route::get('/enquiry', [FrontendController::class,'enquiry'])-> name('front.enquiry');

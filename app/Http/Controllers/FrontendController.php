@@ -9,6 +9,7 @@ use App\Models\About;
 use App\Models\Service;
 use App\Http\Requests\MessageRequest;
 use App\Models\Message;
+use App\Models\Enquiry;
 
 class FrontendController extends Controller
 {
@@ -64,7 +65,8 @@ class FrontendController extends Controller
 
     public function product(Product $product){
 
-        $relatedproduct=Product::where('category_id',$product->category_id)->take(4);
+        $relatedproduct=Product::where('category_id',$product->category_id)->get()->take(4);
+        
         $categories = Category::all();
         return view('frontend.home.__partial.productDetails',compact('relatedproduct','categories','product'));
 
@@ -76,6 +78,11 @@ class FrontendController extends Controller
         $products=Product::where('category_id',$category->id)->paginate(30);
         return view('frontend.home.__partial.productCategory',compact('products','categories','activeCategory'));
 
+    }
+
+    public function storeenquery(Request $request){
+        Enquiry::create($request->all());
+        return (redirect(route("front")))->with("message","Message");
     }
     
     
