@@ -552,3 +552,130 @@ background-color: rgb(0 22 101 / 65%);
         background: #fff;
         cursor: pointer;
     }
+
+
+    .link-cat{
+      color:rgb(73, 72, 72);
+    
+    }
+    .link-cat:hover{
+      color:rgb(73, 72, 72);
+    }
+    .btn-enq{
+      width: 100%;
+    }
+    
+    .btn-enq i {
+      font-size: 15px;
+      margin-right: 3px;
+    }
+    .btns{
+      border-radius: 0;
+
+    }
+    .pagination .page-item.active .page-link{
+      background: #00254a !important;
+      border-color: #00254a !important;
+    }
+    .pagination .page-item.active .page-link:hover{
+      background: #fff !important;
+      border-color: #fa5a3f !important;
+      color: #fa5a3f !important;
+    }
+    .pagination .page-item .page-link:hover{
+      background: #fff !important;
+      border-color: #fa5a3f !important;
+      color: #fa5a3f !important;
+    }
+    .pagination .page-item .page-link{
+      margin: 2px;
+    }
+
+
+    .card-img-top{
+      position: relative;
+    }
+    .sell-product{
+      position: absolute;
+      top:0px;
+      padding: 3px 15px;
+      color: white;
+      background-color: #fa5540;
+      font-weight: bold;
+      left: 0px;
+    }
+    .card-bd{
+      position: relative;
+    }
+    .sb-title{
+      
+      position: absolute;
+      right: 10px;
+      top:28px;
+      font-size: 14px;
+    }
+    .sb-titleoprice{
+      position: absolute;
+      right: 10px;
+      top: 50px;
+      font-size: 11px;
+      color: black;
+    }
+    .card-tit{
+      color: #00254a;
+      width: 57%;
+      font-size: 16px;
+    }
+    .a-p-enq{
+      margin-top: 37px;
+      text-align: center;
+    }
+    .btn-enq{
+      
+      padding: 5px 14px;
+      border-radius: 5px;
+    }
+    .product-col{
+      padding-right: 0;
+    }
+
+
+
+    .link-cat {
+                  border-bottom: 1px solid #eee;
+                }
+                .hide-normal{
+                  color: #fa5540;
+                
+                }
+                
+                .category-title {
+                  background-color: #00254a;
+                  font-weight: bold;
+                  margin-bottom: 10px;
+                }
+                
+                .link-cat{
+                  color:rgb(73, 72, 72);
+                  text-decoration: none;
+                  border-bottom: 0;
+                
+                }
+                .link-cat:hover{
+                  text-decoration: none;
+                  
+                  color:rgb(73, 72, 72);
+                }
+                
+                .btn-search{
+                    color: #fa5540;
+                    background-color: transparent;
+                    background-image: none;
+                    border-color: #fa5540;
+                }
+                .btn-search:hover {
+                    color: #fff;
+                    background-color: transparent;
+                    background-color: #fa5540;
+                    border-color: #fa5540;
+                }

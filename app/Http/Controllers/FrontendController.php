@@ -45,7 +45,7 @@ class FrontendController extends Controller
 
     public function products(){
         $categories=Category::all();
-        $products=Product::paginate();
+        $products=Product::paginate(12);
       return view('frontend.home.product',Compact('categories','products'));
     }
 
@@ -75,7 +75,7 @@ class FrontendController extends Controller
     public function productcategory(Category $category){
         $categories=Category::all();
         $activeCategory=$category;
-        $products=Product::where('category_id',$category->id)->paginate(30);
+        $products=Product::where('category_id',$category->id)->paginate(1);
         return view('frontend.home.__partial.productCategory',compact('products','categories','activeCategory'));
 
     }

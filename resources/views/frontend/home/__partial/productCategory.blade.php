@@ -16,22 +16,7 @@
 
     <div class="main-body">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                 <p class="text-center-s">"Our products"</p> 
-                 <p class="text-center-s1">We deal with all range of electrical and electronics products from sales and supplies to maintenance and repairing at our end-user clients.</p>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="center-search">
-                      <form class="form-inline form-serarch" id="search-form">
-                        <input class="form-control serach-form col-md-8 col-sm-8" type="search" id="search-data" placeholder="Search" aria-label="Search">
-                        <input type="submit" class="btn btn-ser btn-outline-success serach-form  col-md-2 col-sm-2 " id="btn-search" Value="Search" >
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <hr>
+           
 
             <div class="row">
               <div class="col-md-4">
@@ -68,7 +53,38 @@
                 
               </style>
               <div class="col-md-8">
+
                 <div class="row result-data">
+<div class="col-md-12">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <form class="form-inline" id="search-form">
+                        <input class="form-control serach-form col-md-8 col-sm-8" type="search" id="search-data" placeholder="Search" aria-label="Search">
+                        <input type="submit" class="btn btn-ser btn-outline-success btns   col-md-4" id="btn-search" Value="Search" >
+                        </form>
+                      </div>
+                      <div class="col-md-4">
+                      <div class="sort">
+                      <div class="form">
+                        <form action="">
+                          <div class="form-group">
+                            <label class="sr-only" for="sort-by">Sort By</label>
+                            <select class="form-control" id="sort-by" name="sort-by">
+                              <option value="">Sort By</option>
+                              <option value="name">Highest Price</option>
+                              <option value="price">Lowest Price</option>
+                              <option value="rating">Accending Order</option>
+                              <option value="desc">Descending Order</option>
+                            </select>
+                          </div>
+                        </form>
+
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                    <hr>
+                  </div>
 
 
                   @foreach ($products as $product)
@@ -179,14 +195,15 @@
                   <div class="col-md-12 text-danger">
                       Sorry No Result Found
                   </div>
-
-
                   @endif
                 </div>
+                 <div class="d-flex justify-content-center">
+                {{ $products ?? ''->links() }} </div>
               </div>
+               
             </div>
             </div>
-            {{ $products ?? ''->links() }}
+           
         </div>
     </div>
 </section>

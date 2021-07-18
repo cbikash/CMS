@@ -77,7 +77,7 @@
                 </div>
                 <div class="form-group">
                     <label></label>
-                    <textarea name="description" rows="5" class="form-control">{{old('description')}}</textarea>
+                    <textarea name="description" rows="5" id="ckeditor" class="form-control">{{old('description')}}</textarea>
                     @error('description')
                     <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
                     @enderror

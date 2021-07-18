@@ -18,23 +18,6 @@
     <div class="main-body">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                 <p class="text-center-s">"Our products"</p> 
-                 <p class="text-center-s1">We deal with all range of electrical and electronics products from sales and supplies to maintenance and repairing at our end-user clients.</p>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="center-search">
-                      <form class="form-inline form-serarch" id="search-form">
-                        <input class="form-control serach-form col-md-8 col-sm-8" type="search" id="search-data" placeholder="Search" aria-label="Search">
-                        <input type="submit" class="btn btn-ser btn-outline-success serach-form  col-md-2 col-sm-2 " id="btn-search" Value="Search" >
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <hr>
-
-            <div class="row">
               <div class="col-md-4">
                 <ul class="list-group">
                   <nav aria-label="breadcrumb">
@@ -43,50 +26,90 @@
                       <li class="breadcrumb-item active" aria-current="page">All Product</li>
                     </ol>
                   </nav>
-                   <li class="list-group-item bg-secondary text-white active">Product Categories</li>
+                   <li class="list-group-item category-title text-white">Product Categories</li>
                   @foreach ($categories as $category)
-                      <li class="list-group-item "><a href="{{route('front.product.category',$category)}}">{{$category->name}}</a></li>
+                      <li class="list-group-item "><a class="link-cat" href="{{route('front.product.category',$category)}}"><i class="fas fa-hand-point-right hide-normal"></i>  {{$category->name}}</a></li>
                   @endforeach
                 </ul>
               </div>
               <style>
-                .link-cat{
-                  color:rgb(73, 72, 72);
-                
+                .top-search{
+                  margin-top: 5px;
                 }
-                .link-cat:hover{
-                  color:rgb(73, 72, 72);
-                }
-                .btn-enq{
-                  width: 100%;
-                }
-                
-                .btn-enq i {
-                  font-size: 15px;
-                  margin-right: 3px;
-                }
-                
+               
               </style>
               <div class="col-md-8">
+                <div class="row">
+                <div class="col-md-12 top-search">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <form class="form-inline" id="search-form">
+                        <input class="form-control serach-form col-md-8 col-sm-8" type="search" id="search-data" placeholder="Search" aria-label="Search">
+                        <input type="submit" class="btn btn-ser btn-outline-success btns btn-search col-md-4" id="btn-search" Value="Search" >
+                        </form>
+                      </div>
+                      <div class="col-md-4">
+                      <div class="sort">
+                      <div class="form">
+                        <form action="">
+                          <div class="form-group">
+                            <label class="sr-only" for="sort-by">Sort By</label>
+                            <select class="form-control" id="sort-by" name="sort-by">
+                              <option value="">Sort By</option>
+                              <option value="name">Highest Price</option>
+                              <option value="price">Lowest Price</option>
+                              <option value="rating">Accending Order</option>
+                              <option value="desc">Descending Order</option>
+                            </select>
+                          </div>
+                        </form>
+
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                    <hr>
+                  </div>
+                </div>
                 <div class="row result-data">
-
-
                   @foreach ($products as $product)
                     
-                  
                         <div class="col-md-4">
                           <a href="{{route('front.product', $product)}}" class="prod-a">
-                          <div class="card-product">
+                             <div class="card-product">
+                              <div class="card" style="width: 100%;">
+                              <img class="card-img-top" style="height: 140px;" src="{{asset('storage/gallery/'.$product->coverImage)}}" alt="Card image cap">
+                            <span class="sell-product">SELL</span>
+                              <div class="card-body card-bd center">
+                                  <h5 class="card-title card-tit">{{$product->title}}</h5>
+                                  <h6 class="card-subtitle  sb-title mb-2 text-muted">Rs {{$product->price}}</h6>
+                                  
+                                  <h6 class="card-subtitle sb-titleoprice mb-2">NRP <s>200000</s></h6>
+                        
+                                  <p class="a-p-enq"> <a class="btn-enq" href="#" data-toggle="modal" data-target="#{{$product->slug}}"> <i class="fas fa-info"> </i> Enquiry</a></p>
+                              </div>
+                              </div>
+                              </div>
+                          
+
+
+
+
+
+
+                          {{-- <div class="card-product">
                           <div class="card" style="width: 100%;">
                           <img class="card-img-top" style="height: 140px;" src="{{asset('storage/gallery/'.$product->coverImage)}}" alt="Card image cap">
-                          <div class="card-body center">
-                              <h5 class="card-title">{{$product->title}}</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">NRP {{$product->price}} Per {{$product->unit}}</h6> 
-                              <br>
-                              <p class="a-p-enq"> <a class="btn-enq" href="#" data-toggle="modal" data-target="#{{$product->slug}}"> <i class="fas fa-info"> </i> Enquiry</a></p>
+                          <span class="sell-product">SELL</span>
+                          <div class="card-body center card-bd">
+                              <h5 class="card-title card-tit">{{$product->title}}</h5>
+                              <h6 class="card-subtitle mb-2 sb-title text-muted">Rs {{$product->price}} Per {{$product->unit}}</h6> 
+                                <h6 class="card-subtitle sb-titleoprice mb-2"><s>NRP 200000</s></h6>
+              
+                              <p class="a-p-enq"> <a class="btn-enq" href="#"  data-toggle="modal" data-target="#{{$product->slug}}"> <i class="fas fa-info"> </i> Enquiry</a></p>
                           </div>
                           </div>
-                          </div>
+                          </div> --}}
                           </a>
                           </div>
 
@@ -178,14 +201,16 @@
                   <div class="col-md-12 text-danger">
                       Sorry No Result Found
                   </div>
-
-
                   @endif
                 </div>
+                <div class="d-flex justify-content-center">
+                
+                {{ $products ?? ''->links() }}</div>
               </div>
             </div>
+            
             </div>
-            {{ $products ?? ''->links() }}
+            
         </div>
     </div>
 </section>
