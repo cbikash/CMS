@@ -3,12 +3,12 @@
 
 <div class="top-section">
     <div class="container">
-        <div class="top-section-main">
-            <div class="top-section-desc">
-                <h5>About Us</h5>
-                <p class="hide-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
-            </div>
+        <div class="row">
+        <div class="col-md-12 div-top-section">
+          <p class="header-class">About</p>
+          <p> <a href="/">HOME</a> > ABOUT </p>
         </div>
+      </div>
     </div>
 </div>
 

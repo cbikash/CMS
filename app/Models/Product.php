@@ -16,6 +16,10 @@ class Product extends Model
         'slug',
         'user_id',
         'category_id',
+        'stock',
+        'discountAmount',
+        'discountType',
+        'discountStatus',
         ];
 
     use HasFactory;

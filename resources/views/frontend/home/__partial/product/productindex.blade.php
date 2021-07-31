@@ -1,5 +1,5 @@
 @foreach ($products as $product)
-    <div class="col-md-4">
+    <div class="col-md-3">
         <a href="{{route('front.product', $product)}}" class="prod-a">
             <div class="card-product">
             <div class="card" style="width: 100%;">

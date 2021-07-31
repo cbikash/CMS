@@ -140,3 +140,6 @@
       border-bottom: 2px solid #c5bdbd;
 
  }
+ table{
+     width: 100% !important;
+ }

@@ -25,6 +25,8 @@ Route::group(['middleware'=>'auth'], function (){
     Route::resource('/admin/enquiry',\App\Http\Controllers\EnquiryController::class);
     Route::resource('/admin/category',\App\Http\Controllers\CategoryController::class);
     Route::resource('/admin/about',\App\Http\Controllers\AboutController::class);
+    Route::resource('/admin/manufacture',\App\Http\Controllers\ManufactureController::class);
+    Route::get('/admin/read/notification',[\App\Http\Controllers\EnquiryController::class,'readNotification'])->name('admin.read.notification');
     
 });
 
@@ -37,9 +39,13 @@ Route::group(['middleware'=>'web'], function (){
     Route::post('/contact/message', [FrontendController::class,'storemessage']);
     Route::post('/enquery/product',[FrontendController::class,'storeenquery']);
     Route::get('/services', [FrontendController::class,'services'])-> name('front.services');
+    Route::get('/service/{service:slug}', [FrontendController::class,'service'])-> name('front.service');
     Route::get('/products', [FrontendController::class,'products'])-> name('front.products');
+    Route::get('/manufactures', [FrontendController::class,'manufactures'])-> name('front.manufactures');
     Route::get('/enquiry', [FrontendController::class,'enquiry'])-> name('front.enquiry');
     Route::get('/product/{product:slug}', [FrontendController::class,'product'])-> name('front.product');
+    Route::get('/manufacture/{manufacture:slug}', [FrontendController::class,'manufacture'])-> name('front.manufacture');
     Route::get('/product/search/data/', [FrontendController::class,'productsearch'])-> name('front.product.search');
     Route::get('/product/category/{category:slug}', [FrontendController::class,'productcategory'])-> name('front.product.category');
+    
 });

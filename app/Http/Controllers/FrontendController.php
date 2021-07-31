@@ -10,11 +10,15 @@ use App\Models\Service;
 use App\Http\Requests\MessageRequest;
 use App\Models\Message;
 use App\Models\Enquiry;
+use App\Models\User;
+use App\Notifications\OrderNotification;
+use App\Notifications\MessageNotification;
+
 
 class FrontendController extends Controller
 {
     public function index(){
-        $products=\App\Models\Product::all()->sortByDesc('created_at')->take(3);
+        $products=\App\Models\Product::all()->sortByDesc('created_at')->take(4);
         $abouthome= About::where('home','1')->get();
         
         return view('frontend.home.index',compact('products','abouthome'));
@@ -33,7 +37,11 @@ class FrontendController extends Controller
 
 
     public function storemessage(MessageRequest $request){
-        Message::create($request->all());
+        $check=Message::create($request->all());
+        if($check){
+            User::find(1)->notify(new MessageNotification($check));
+        }
+
         return (redirect(route('front.enquiry')))->with('messageafter',"Thank you for messaging us");
     }
 
@@ -41,11 +49,34 @@ class FrontendController extends Controller
         $services=Service::all();
         return view('frontend.home.service',compact('services'));
     }
+    
+    public function service(Service $service){
+        $services=Service::all()->take(10);
+        return view('frontend.home.__partial.service',compact('service','services'));
+    }
 
 
-    public function products(){
+    public function products(Request $request){
+        $filter = $request->input('sort');
+        if(!empty($filter)){
+            if($filter=='AscPrice'){
+                 $products=Product::orderBy('price', 'ASC')->paginate(6);
+            }
+            if($filter=='DescPrice'){
+                $products=Product::orderBy('price', 'DESC')->paginate(6);
+            }
+            if($filter=='AscName'){
+                $products=Product::orderBy('title', 'ASC')->paginate(6);
+            }
+            if($filter=='descName'){
+                $products=Product::orderBy('title', 'DESC')->paginate(6);
+            }
+        }else{
+            $products=Product::paginate(6);
+        }
+
         $categories=Category::all();
-        $products=Product::paginate(12);
+        
       return view('frontend.home.product',Compact('categories','products'));
     }
 
@@ -60,6 +91,7 @@ class FrontendController extends Controller
          $products= Product::query()
                         ->where('title','LIKE','%'.$title.'%')
                         ->get();
+                        
          return response()->view('frontend.home.__partial.serachdata',compact('products'));
     }
 
@@ -72,20 +104,51 @@ class FrontendController extends Controller
 
     }
 
-    public function productcategory(Category $category){
+    public function productcategory(Category $category,Request $request){
         $categories=Category::all();
         $activeCategory=$category;
-        $products=Product::where('category_id',$category->id)->paginate(1);
+        $filter = $request->input('sort');
+        if(!empty($filter)){
+            if($filter=='AscPrice'){
+                 $products=Product::where('category_id',$category->id)->orderBy('price', 'ASC')->paginate(6);
+            }
+            if($filter=='DescPrice'){
+                $products=Product::where('category_id',$category->id)->orderBy('price', 'DESC')->paginate(6);
+            }
+            if($filter=='AscName'){
+                $products=Product::where('category_id',$category->id)->orderBy('title', 'ASC')->paginate(6);
+            }
+            if($filter=='descName'){
+                $products=Product::where('category_id',$category->id)->orderBy('title', 'DESC')->paginate(6);
+            }
+        }else{
+            $products=Product::where('category_id',$category->id)->paginate(6);
+        }
+
+       // $products=Product::where('category_id',$category->id)->paginate(6);
         return view('frontend.home.__partial.productCategory',compact('products','categories','activeCategory'));
 
     }
 
     public function storeenquery(Request $request){
-        Enquiry::create($request->all());
-        return (redirect(route("front")))->with("message","Message");
+
+        $check=Enquiry::create($request->all());
+        
+         if($check){
+           User::find(1)->notify(new OrderNotification($check));
+          }
+
+        return back()->with("message","Message");
     }
     
-    
+    public function manufactures(){
+        $manufactures=\App\Models\Manufacture::paginate(1);
+        return view('frontend.home.manufacture',compact('manufactures'));
+    }
 
-
+    public function manufacture(\App\Models\Manufacture $manufacture){
+        
+        $manufactures = \App\Models\Manufacture::all()->take(10);
+        return view('frontend.home.__partial.manufacture.manufacture',compact('manufacture','manufactures'));
+    }
 }

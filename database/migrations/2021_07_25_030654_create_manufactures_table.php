@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateServicesTable extends Migration
+class CreateManufacturesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('manufactures', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->string('coverImage');
-            $table->Longtext('description');
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->string('image');
+            $table->longText('description');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('manufactures');
     }
 }

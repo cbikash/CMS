@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Enquiry;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EnquiryController extends Controller
 {
@@ -27,6 +28,11 @@ class EnquiryController extends Controller
         }
 
         return view('admin.enquiry.show',compact('enquiry'));
+    }
+
+    public function readNotification(){
+         Auth::user()->unreadNotifications->markAsRead();
+         return redirect()->back();
     }
 
 }

@@ -12,7 +12,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
-                <li class="breadcrumb-item"><a href=" {{ route('product.index') }} ">product</a></li>
+                <li class="breadcrumb-item"><a href=" {{ route('product.index') }} "></a></li>
                 <li class="breadcrumb-item active " aria-current="page">Create Product</li>
             </ol>
         </nav>
@@ -106,7 +106,6 @@
                     <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
                     @enderror
                 </div>
-                
                 {!! Form::submit('Add Product',['class'=>'btn btn-primary shadow']) !!}
                 {!! Form::close() !!}
         </div>

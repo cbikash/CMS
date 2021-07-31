@@ -13,6 +13,7 @@ class Service extends Model
         'description',
         'user_id',
         'coverImage',
+        'slug',
 
     ];
 }

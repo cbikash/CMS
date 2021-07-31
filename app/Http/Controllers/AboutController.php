@@ -27,12 +27,12 @@ class AboutController extends Controller
         $about = new About();
         $about->title = $request->title;
         $about->content = $request->content;
-        $about->content = $request->content;
+        $about->feature = $request->feature;
         $about->home = $request->home;
-
         if($request->home == ""){
             $about->home = "0";
         }
+
          if($request->feature == ""){
             $about->feature = "0";
             
@@ -58,7 +58,6 @@ class AboutController extends Controller
     
     public function update(Request $request, About $about)
     {
-        
         $this->validate($request, [ 'title' => 'required', 'content' => 'required' ]);
         $about->title = $request->title;
         $about->content = $request->content;

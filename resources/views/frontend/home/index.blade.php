@@ -11,9 +11,9 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img class="d-block w-100 img-c" src="{{asset('frontend/asset/slider1.jpeg')}}" alt="First slide">
-       <div class="carousel-caption carousel-caption1  d-none d-md-block">
+       <div class="carousel-caption carousel-caption3  d-none d-md-block">
          <div class="coursole-p">
-          <h1 class="text-info bold animate__animated animate__bounce"> <b>Professanal Service</b> </h1>
+          <h1 class="bold animate__animated animate__bounce"> <b>Professanal Service</b> </h1>
            <p class="animate__animated animate__lightSpeedInLeft">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
           <br> <a class="btn-caro animate__animated animate__lightSpeedInRight" href="#">Contact us</a><a class="btn-caroI animate__animated animate__lightSpeedInRight" href="#">Our Service</a>
          </div>
@@ -22,9 +22,11 @@
     </div>
     <div class="carousel-item">
       <img class="d-block w-100 img-c" src="{{asset('frontend/asset/slider1.jpeg')}}" alt="Second slide">
-       <div class="carousel-caption carousel-caption2  d-none d-md-block">
+       <div class="carousel-caption carousel-caption3  d-none d-md-block">
          <div class="coursole-p">
-          <h1 class="text-success bold animate__animated animate__bounce"> <b>Professanal Service</b> </h1>
+            <p class="top-center  animate__animated animate__bounceInDown"> <b>Welcome to Ac Power Company</b> </p>
+        
+          <h1 class=" bold animate__animated animate__bounce"> <b>Professanal Service</b> </h1>
            <p class="animate__animated animate__lightSpeedInLeft">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
           <br> <a class="btn-caro animate__animated animate__lightSpeedInRight" href="#">Contact us</a> <a class="btn-caroI animate__animated animate__lightSpeedInRight" href="#">Our Service</a>
          </div>
@@ -34,7 +36,7 @@
       <img class="d-block w-100 img-c" src="{{asset('frontend/asset/slider1.jpeg')}}" alt="Third slide">
       <div class="carousel-caption carousel-caption3 d-none d-md-block">
      <div class="coursole-p">
-          <h1 class="text-success bold animate__animated animate__bounce"> <b>Professanal Service</b> </h1>
+          <h1 class="bold animate__animated animate__bounce"> <b>Professanal Service</b> </h1>
            <p class="animate__animated animate__lightSpeedInLeft">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
           <br> <a class="btn-caro animate__animated animate__lightSpeedInRight" href="#">Contact us</a> <a class="btn-caroI animate__animated animate__lightSpeedInRight" href="#">Our Service</a>
          </div>
@@ -42,11 +44,11 @@
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="fas fa-angle-double-left carousel-control-custom" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
   <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="fas fa-angle-double-right carousel-control-custom" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
 </div>
@@ -111,104 +113,8 @@ in San Francisco, Albany, Brisbane, Dublin and Palo Alto.</h3>
             font-weight: bold;
           }
         </style>
-
-        @foreach($products as $product)
-            <div class="col-md-3">
-                 <a href="{{route('front.product', $product)}}" class="prod-a">
-                    <div class="card-product">
-                    <div class="card" style="width: 100%;">
-                    <img class="card-img-top" style="height: 140px;" src="{{asset('storage/gallery/'.$product->coverImage)}}" alt="Card image cap">
-                    <div class="card-body align-content-center">
-                    <p class="card-title text-primary">{{$product->title}}</p>
-                    <p class="text-secondary">NRP {{$product->price}} Per {{ $product->unit}} </p>
-                    <p>{{ Str::limit($product->description, 60)}}</p>
-                   <p class="a-p-enq"> <a class="btn-enq" href="#" data-toggle="modal" data-target="#{{$product->slug}}"> <i class="fas fa-info"> </i> Enquire</a></p>
-                </div>
-                </div>
-                </div>
-                </a>
-            </div>
-        <!-- Modal -->
-        <div class="modal fade text-muted" id="{{$product->slug}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title text-muted bold" id="exampleModalLongTitle">Enquire To Product: <u><a href="{{route('front.product', $product)}}">{{$product->title}}</a></u></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                     {!! Form::open(['method'=>'post','action'=>'App\Http\Controllers\FrontendController@storeenquery'])!!}
-                     @csrf
-                     <div class="form-row">
-                       <div class="form-group col-md-6">
-                            <label for="inputAddress">Name</label>
-                            <input type="text" name="name" required value="{{ old('name')}}" class="form-control" id="inputAddress" placeholder="Enter Your Name">
-                         @error('name')
-                    <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
-                    @enderror
-                        </div>
-                         <div class="form-group col-md-6">
-                            <label for="inputAddress2">Address</label>
-                            <input type="text" name="address" required value="{{old('address')}}" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                         @error('address')
-                    <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
-                    @enderror
-                        </div>
-
-                     </div>
-                        <div class="form-row">
-                           <div class="form-group col-md-6">
-                            <label for="inputAddress2">Email</label>
-                            <input type="email" name="email" required value="{{old('email')}}" class="form-control" id="inputAddress2" placeholder="Enter you Email">
-                        @error('email')
-                    <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
-                    @enderror
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputAddress2">Contact</label>
-                            <input type="text" name="phone" required value="{{old('contact')}}" class="form-control" id="inputAddress2" placeholder="Contact Number">
-                             @error('contact')
-                    <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
-                    @enderror
-                        </div>
-
-                        </div>
-                        <div class="form-row">
-                           <div class="form-group col-md-6">
-                            <label for="inputAddress2">Product Name</label>
-                            <input type="text"  value="{{$product->title}}" disabled class="form-control" id="inputAddress2">
-                            <input type="hidden" value="{{$product->id}}" name="product_id">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputAddress2">Quntity</label>
-                            <input type="text" name="quantity" required value="{{old('quantity')}}" class="form-control" id="inputAddress2" placeholder="Quantiy">
-                             @error('contact')
-                    <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
-                    @enderror
-                        </div>
-
-                        </div>
-                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Your Message</label>
-                            <textarea class="form-control" name="message" value="no thing" id="exampleFormControlTextarea1" rows="2">{{old('message')}}</textarea>
-                             @error('message')
-                            <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
-                            @enderror
-                        </div>
-                        
-              </div>
-              <div class="modal-footer">
-                {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button> --}}
-                 {!! Form::submit('Send Enquiry',['class'=>'btn-message shadow']) !!}
-                        {!! Form::close() !!}
-              </div>
-            </div>
-          </div>
-        </div>
-        @endforeach
+         @include('frontend.home.__partial.product.productindex')
+        {{--  --}}
       </div>
     </div>
   
@@ -278,16 +184,77 @@ in San Francisco, Albany, Brisbane, Dublin and Palo Alto.</h3>
              </div>
           </div>
         </div>
-   
   </div>
+  <div class="videocontainer">
+          <div class="secondvideo">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12 col-title-w">Take A Tour About Our Company</div>
+                
+                <div class="col-md-12 vid-p">
+                     <p>Id pri consul aeterno petentium. Vivendo abhorreant et vim, et quot persecuti mel. Libris hendrerit ex sea 
+Id pri consul aeterno petentium. Vivendo abhorreant et vim, et quot persecuti mel. Libris hendrerit ex sea. Duo legere evertitur an, pri hinc doctus definitiones an, vix id dicam putent. Ius ornatus instructior in.</p>
+                <p> 
+                <a class="btn btn-play" data-toggle="modal" data-target=".bd-example-modal-lg"><i class=" fas-vid fas fa-play-circle"></i></a>
+                </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 </section>
+<section>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"> <b>Take a Tour to our Company</b> </h5>
+        <button type="button" class="close btn-modal" data-dismiss="modal" aria-label="Close">
+          <span class="btn-span" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 0; margin-bottom: 0;">
+        <iframe style="width:100%;height:500px;" src="https://www.youtube.com/embed/Bb8uL7UCo8Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" id="frontpage-modal">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><b>Modal title</b></h5>
+        <button type="button" class="close btn-modal" data-dismiss="modal" aria-label="Close">
+          <span class="close-modal btn-span" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body frontpage-modal-body">
+        <img src="{{asset('frontend/asset/electonic.jpeg')}}" class="img-fluid" style="width: 100%;" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
+
+
+
 @if (session('message'))
   <script>
     $(document).ready(function(){
+
       alert("Thank you for Enquery will contact you very soon.")
     })
   </script>                 
  @endif
 
 
+
+ <script>
+  $(document).ready(function(){
+    $('#frontpage-modal').modal('show')
+  })
+ </script>
 @endsection
