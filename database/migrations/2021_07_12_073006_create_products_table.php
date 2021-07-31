@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('title');
             $table->string('coverImage');
             $table->float('price');
-            $table->string('unit');
+            $table->string('unit')->nullable(true);
             $table->tinyInteger('stock')->default(1);
             $table->float('discountAmount')->nullable(true);
             $table->string('discountType')->nullable(true)->default('0');

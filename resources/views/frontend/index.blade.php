@@ -24,7 +24,13 @@
   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
   crossorigin="anonymous"></script>
 
-
+<style>
+  .nav-top-fix-a{
+box-shadow: -1px 15px 34px -31px rgba(0,0,0,0.93);
+-webkit-box-shadow: -1px 15px 34px -31px rgba(0,0,0,0.93);
+-moz-box-shadow: -1px 15px 34px -31px rgba(0,0,0,0.93);
+}
+</style>
  
              
 <title></title>
@@ -63,32 +69,37 @@
   </div>
   </div>
 </nav>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light bottom-nav sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light bottom-nav" id="nav-top-fix">
     <div class="container">
   <a class="navbar-brand" href="{{ route('front') }}"><img src="{{asset('frontend/asset/acpower-logo.png')}}" height="50px" alt=""></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="fas fa-align-left"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
         <a class="nav-link main-nav" href="{{ route('front') }}">HOME</a>
       </li>
+       <li class="nav-item">
+        <a class="nav-link main-nav" href=" {{route('front.about')}} ">ABOUT US</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link main-nav" href=" {{ route('front.products')}}">SHOP</a>
       </li>
       <li class="nav-item main-nav">
+        <a class="nav-link main-nav " href=" {{route('front.manufactures')}} ">MANUFACTURE</a>
+      </li>
+      
+      <li class="nav-item main-nav">
         <a class="nav-link main-nav " href=" {{route('front.services')}} ">OUR SERVICE</a>
       </li>
+      
       <li class="nav-item">
-        <a class="nav-link main-nav" href=" {{route('front.about')}} ">ABOUT US</a>
+        <a class="nav-link main-nav" href="{{ route('front.enquiry') }}">CONTACT US</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link main-nav" href="{{ route('front.enquiry') }}">ENQUERY</a>
-      </li>
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link main-nav" href="{{ route('front.contact') }}">CONTACT US</a>
-      </li>
+      </li> --}}
     </ul>
   </div>
   </div>
@@ -96,9 +107,6 @@
 </section>
 
 {{-- end of Header Section --}}
-
-
-
 
 @yield('content')
 
@@ -110,15 +118,13 @@
        <div class="row">
          <div class="col-sm-12 col-md-4 col-lg-4">
            <img src="asset/logo-footer.png" height="30" alt="">
-           
            <p>
              <br>
              Id pri consul aeterno petentium. Vivendo abhorreant et vim, et quot persecuti mel. Libris hendrerit ex sea. Duo legere evertitur an, pri hinc doctus definitiones an, vix id dicam putent. Ius ornatus instructior in.
            </p>
-
          </div>
          <div class="col-sm-12 col-md-4 col-lg-4 col-f">
-           <h3><span class="div-line">Discover</span></h3>
+           <h3><span class="div-line">Useful Links</span></h3>
            <ul class="list-group list-group-flush dis">
             <li class="list-group-item "><a href="{{route('front')}}">Home</a></li>
             <li class="list-group-item"><a href="{{route('front.about')}}">About</a></li>
@@ -196,6 +202,24 @@ s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+  window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        document.getElementById('nav-top-fix').classList.add('fixed-top');
+        document.getElementById('nav-top-fix').classList.add('nav-top-fix-a');
+        // add padding top to show content behind navbar
+        navbar_height = document.querySelector('.navbar').offsetHeight;
+        document.body.style.paddingTop = navbar_height + 'px';
+      } else {
+        document.getElementById('nav-top-fix').classList.remove('nav-top-fix-a');
+        document.getElementById('nav-top-fix').classList.remove('fixed-top');
+         // remove padding top from body
+        document.body.style.paddingTop = '0';
+      } 
+  });
+}); 
 </script>
 <!--End of Tawk.to Script-->
     <!-- Optional JavaScript -->

@@ -23,6 +23,7 @@ class ServiceController extends Controller
     public function store(ServiceRequest $serviceRequest){
         $input=$serviceRequest->all();
         $input['user_id']=Auth::id();
+        $input['slug']=Str::slug($input['title']);
         if($file=$serviceRequest->file('coverImage')){
             $filename=$file->getClientOriginalName();
             $path= Image::make($file->getRealPath());
@@ -56,6 +57,7 @@ class ServiceController extends Controller
     protected function deleteoldimage($file){
         if($path=$file->path){
             Storage::delete('public/service/'.$path);
+            
         }
     }
 

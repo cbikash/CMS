@@ -27,7 +27,7 @@
         <div class="col-sm-12 col-lg-12 col-xl-12">
             <div class="body-content">
 
-                <table class="table table-hover">
+                <table class="table table-hover table-responsive">
                     <thead class="thead-custom">
                     <tr>
                         <th scope="col">#</th>

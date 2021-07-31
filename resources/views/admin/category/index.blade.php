@@ -13,7 +13,7 @@
             <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
-                <li class="breadcrumb-item active " aria-current="page">Category (<a href="{{route('category.create')}}">Add Product</a>)</li>
+                <li class="breadcrumb-item active " aria-current="page">Category (<a href="{{route('category.create')}}">Add Category</a>)</li>
                 
             </ol>
             </nav>
@@ -22,7 +22,7 @@
             <div class="col-sm-12 col-lg-12 col-xl-12">
                 <div class="body-content">
 
-                <table class="table table-hover">
+                <table class="table table-hover table-responsive">
                 <thead class="thead-custom">
                     <tr>
                     <th scope="col">#</th>

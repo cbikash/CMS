@@ -51,7 +51,7 @@
                
                 <br>
 
-                {!! Form::submit('Add Product',['class'=>'btn btn-success shadow']) !!}
+                {!! Form::submit('Add About',['class'=>'btn btn-success shadow']) !!}
                 {!! Form::close() !!}
         </div>
     </div>

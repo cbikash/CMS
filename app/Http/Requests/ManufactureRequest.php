@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductRequest extends FormRequest
+class ManufactureRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,9 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'max:100|required',
-            'price' => 'required',
-            'description' => 'required',
-            'coverImage' =>'image|mimes:jpeg,png,bmp,gif, or svg',
-            'category_id' => 'required',
-            'discountAmount'=>'numeric',
-            'slug' => 'unique:products',
+             'title'=>'required',
+             'description'=>'required', 
+             'image'=>'image|mimes:jpeg,png,bmp,gif, or svg'
         ];
     }
 }

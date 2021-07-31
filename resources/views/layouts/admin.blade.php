@@ -120,6 +120,19 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoman"
+                   aria-expanded="true" aria-controls="collapseTwo1">
+                    <i class="fas fa-angle-double-right text-primary"></i>
+                    <span>Manufacture</span>
+                </a>
+                <div id="collapseTwoman" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="py-2 collapse-inner rounded">
+                        <a class="collapse-item" href=" {{route('manufacture.index')}} ">Manufacture</a>
+                        <a class="collapse-item" href=" {{route('manufacture.create')}} ">Add Manufacture Product</a>
+                    </div>
+                </div>
+            </li>
 
             
         </ul>
@@ -139,12 +152,9 @@
                     </button>
 
 
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
 
 
-                    <form
+                    {{-- <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                               <div class="form-group has-search">
@@ -152,7 +162,7 @@
                                 <input type="text" class="form-control" placeholder="Search">
                             </div>
                         </div>
-                    </form>
+                    </form> --}}
 
 
                     <ul class="navbar-nav ml-auto">
@@ -186,8 +196,9 @@
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
-
-                                <span class="badge badge-danger badge-counter">4+</span>
+                               @if(count(auth()->user()->unreadNotifications) != 0)
+                            <span class="badge badge-danger badge-counter">{{count(auth()->user()->unreadnotifications)}}+</span>
+                            @endif 
                             </a>
 
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -195,14 +206,53 @@
                                 <h6 class="dropdown-header">
                                     Alerts Center
                                 </h6>
+
+                                 @if(count(auth()->user()->unreadNotifications) != 0)
+
+                                <a href="{{route('admin.read.notification')}}" class="dropdown-item d-flex align-items-center text-success">Mark as All read</a>
+
+
+                                @foreach(auth()->user()->unreadNotifications as $notification)
+
+
+                                <a class="dropdown-item d-flex align-items-center" href="
+                                     @if ($notification->data['notification_type'] == "Message")
+                                     {{route('message.show',$notification->data['notification_id'])}}
+                                      @else 
+                                      {{route('enquiry.show',$notification->data['notification_id'])}}
+                                      @endif" >
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+
+                                        <div class="small text-gray-500">{{$notification->created_at->diffForHumans()}}</div>
+                                        <span class="font-weight-bold">{{$notification->data['name']}} has send {{$notification->data['notification_type']}}!</span>
+                                    </div>
+                                </a>
+                            @endforeach
+
+                            <a class="dropdown-item text-center small text-gray-500" href="{{route('enquiry.index')}}">Show All Alerts</a>
+                            @else
+
+                                <a class="dropdown-item text-center  text-gray-500" href="#">No any Notification Available</a>
+
+                            @endif
+{{-- 
+
+
+
+
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div>
                                         <div class="small text-gray-500">December 12, 2019</div>
                                         <span class="font-weight-bold">A new monthly report is ready to download!</span>
                                     </div>
                                 </a>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                                
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a> --}}
                             </div>
                         </li>
 
@@ -245,78 +295,7 @@
                 </nav>
 
                 <div class="container-fluid content">
-
-
-
-                    <div class="boxes">
-                        <div class="row">
-                            <div class="col-md-4">
-                               <div class="box">
-
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="box-header">
-                                                <h4>Total Product</h4>
-                                            </div>
-                                            <div class="box-content">
-                                                <p class="text-info">2000</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="col">
-                                            <i class="fas fa-copy icon-box text-info"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                          </div>
-
-                          <div class="col-md-4">
-                               <div class="box">
-
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="box-header">
-                                                <h4>Total Product</h4>
-                                            </div>
-                                            <div class="box-content">
-                                                <p class="text-info">2000</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="col">
-                                            <i class="fas fa-copy icon-box text-info"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                          </div>
-
-                          <div class="col-md-4">
-                               <div class="box">
-
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="box-header">
-                                                <h4>Total Product</h4>
-                                            </div>
-                                            <div class="box-content">
-                                                <p class="text-info">2000</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="col">
-                                            <i class="fas fa-copy icon-box text-info"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                          </div>
-                        </div>
-                    </div>
                     @yield('content')
-
-
-
-
-
                 </div>
             </div>
             <footer class="sticky-footer bg-white">

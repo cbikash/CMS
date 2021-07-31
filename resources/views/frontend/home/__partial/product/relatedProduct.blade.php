@@ -1,5 +1,5 @@
-@foreach ($products as $product)
-    <div class="col-md-4">
+@foreach ($relatedproduct as $product)
+    <div class="col-md-3">
         <a href="{{route('front.product', $product)}}" class="prod-a">
             <div class="card-product">
             <div class="card" style="width: 100%;">
@@ -25,7 +25,6 @@
             </div>
         </a>
         </div>
-        
         <div class="modal fade text-muted" id="modal-{{$product->slug}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -105,6 +104,5 @@
             </div>
         </div>
         </div>
-
 
 @endforeach
