@@ -25,7 +25,6 @@
             </div>
         </a>
         </div>
-        
         <div class="modal fade text-muted" id="modal-{{$product->slug}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">

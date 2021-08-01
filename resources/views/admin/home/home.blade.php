@@ -139,6 +139,17 @@
             </div>
         </div>
     </div>
+    
+
 </div>
+<div class="row">
+    <div class="col-md-12">
+        <br>
+        <iframe src="https://www.hamropatro.com/widgets/calender-full.php" frameborder="0" scrolling="no" marginwidth="0" marginheight="0"
+    style="border:none; overflow:hidden; width:800px; height:840px;" allowtransparency="true"></iframe>
+
+    </div>
+</div>
+
 </div>
 @endsection

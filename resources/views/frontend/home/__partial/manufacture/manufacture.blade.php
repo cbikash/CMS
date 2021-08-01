@@ -31,7 +31,7 @@
             <div class="colver-img">
                 <h3 class="title-product-man"><a href="#"><b>{{$manufacture->title}}</b></a> </h3> 
                       
-                <img src="{{asset('storage/gallery/'.$manufacture->image)}}" class="img-fluid img-cover" alt="{{$manufacture->title}}">
+                <img src="{{asset('storage/gallery/manufacture/'.$manufacture->image)}}" class="img-fluid img-cover" alt="{{$manufacture->title}}">
                 <div class="row">
                     <div class="col-md-12">
                         <h3>{{$manufacture->title}}</h3>

@@ -21,8 +21,9 @@
 
             <div class="col-sm-12 col-lg-12 col-xl-12">
                 <div class="body-content">
+                     <div class="table-responsive"> 
 
-                <table class="table table-hover table-responsive">
+                <table class="table table-hover ">
                 <thead class="thead-custom">
                     <tr>
                     <th scope="col">#</th>
@@ -51,6 +52,7 @@
                 @endforeach
                 </tbody>
                 </table>
+                </div>
 
 
                 </div>
