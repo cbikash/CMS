@@ -98,7 +98,6 @@ class FrontendController extends Controller
     public function product(Product $product){
 
         $relatedproduct=Product::where('category_id',$product->category_id)->get()->take(4);
-        
         $categories = Category::all();
         return view('frontend.home.__partial.productDetails',compact('relatedproduct','categories','product'));
 

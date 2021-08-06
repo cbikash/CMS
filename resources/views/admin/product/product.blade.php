@@ -29,10 +29,11 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Price</th>
-                                <th scope="col">unit</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Action</th>
-                                    <th scope="col">Delete</th>
+                                <th scope="col">offer Amount</th>
+                                <th scope="col">offter Status</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Action</th>
+                                <th scope="col">Delete</th>
 
                                 </tr>
                             </thead>
@@ -42,7 +43,8 @@
                                 <th scope="row">{{  $loop->iteration  }}</th>
                                 <td>{{$productlist->title}}</td>
                                 <td>{{$productlist->price}}</td>
-                                <td>{{$productlist->unit}}</td>
+                                <td>{{$productlist->discountAmount}}</td>
+                                <td>@if($productlist->discountStatus == 1) <span class="text-success">Active</span>  @else <span class="text-danger">In Active</span> @endif</td>
                                     <td>{{ Str::limit($productlist->description, 50)}}</td>
                                     <td>
                                         <a href="{{route('product.show', $productlist)}}" class="text-success"> <i class="fas fa-eye"></i></a>

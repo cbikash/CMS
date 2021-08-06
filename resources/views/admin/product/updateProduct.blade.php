@@ -15,6 +15,7 @@
                 <h3>Update Product</h3>
                 <hr>
                 {!! Form::open(['method'=>'PUT','action'=>['App\Http\Controllers\ProductController@update',$product],'files'=>true])!!}
+
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Product Name</label>
@@ -33,14 +34,16 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                    <label>Unit</label>
-                    <input type="text" name="unit" value="{{$product->unit}}" class="form-control" placeholder="Enter the unit">
-                    @error('unit')
+                   <div class="form-group col-md-6">
+                    <label>Stock</label>
+                    <select name="stock" class="form-control">
+                        <option value="1" @if($product->stock == 1) Selected @endif>On Stock</option>
+                        <option value="0" @if($product->stock == 0) Selected @endif>Out of Stock</option>
+                    </select>
+                     @error('stock')
                     <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
                     @enderror
-                    </div>
-                
+                </div>
                     <div class="form-group col-md-6">
                         <label>Category</label>
                         <select name="category_id" class="form-control">
@@ -54,7 +57,26 @@
                         @enderror
                     </div>
                 </div>
-
+                <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Discount Amount</label>
+                    <input type="text" name="discountAmount" value="{{ $product->discountAmount }}" class="form-control" placeholder="Enter Discount Amount">
+                    @error('discountAmount')
+                    <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
+                    @enderror
+                </div>
+                
+                <div class="form-group col-md-6">
+                    <label>Discount Status</label>
+                    <select name="discountStatus" class="form-control">
+                        <option value="1" @if($product->discountStatus == 1) Selected @endif>Active</option>
+                        <option value="0" @if($product->discountStatus == 0) Selected @endif>Inactive</option>
+                    </select>
+                     @error('discountStatus')
+                    <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
+                    @enderror
+                </div>
+                </div>
                 <div class="form-group">
                     <label for="">Choose Product Cover Image</label>
                     <div class="custom-file">

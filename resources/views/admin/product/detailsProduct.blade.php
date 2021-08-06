@@ -13,7 +13,7 @@
         </div>
 
             <div class="col-md-12">
-                <img src="{{asset('storage/gallery/'.$product->coverImage)}}" class="img-fluid" width="100%" alt="">
+                <img src="{{asset('storage/gallery/product/'.$product->coverImage)}}" class="img-fluid" width="100%" alt="">
                 <br>
                 <br>
                 <h3>{{ $product->title }}</h3>
