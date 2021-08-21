@@ -71,9 +71,10 @@ class ProjectController extends Controller
         $project->location = $request->location;
         $project->project_value = $request->project_value;
         $project->project_owner = $request->project_owner;
+        $project->project_url = $request->project_url;
         $project->user_id = Auth::user()->id;
         $project->save();
-        return redirect()->route('admin.project.index');
+        return redirect()->route('project.index');
     }
 
     /**
@@ -120,7 +121,7 @@ class ProjectController extends Controller
         $project->slug = Str::slug($request->title);
 
         if($file=$request->file('image')){
-            $this->deleteImage($project);
+            $this->deleteoldimage($project);
             $filename=$file->getClientOriginalName();
             $path= Image::make($file->getRealPath());
             $path->fit(600,400);
@@ -128,7 +129,7 @@ class ProjectController extends Controller
             if($path){
                 $file->storeAs('gallery/project/',$filename,'public');
             }
-            $testimonial->image=$filename;
+            $project->image=$filename;
         }
         $project->project_start_date = $request->project_start_date;
         $project->project_end_date = $request->project_end_date;
@@ -139,7 +140,7 @@ class ProjectController extends Controller
         $project->project_owner = $request->project_owner;
         $project->user_id = Auth::user()->id;
         $project->save();
-        return redirect()->route('admin.project.index');
+        return redirect()->route('project.index');
         
     }
      protected function deleteoldimage($file){
