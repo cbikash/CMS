@@ -27,8 +27,8 @@
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Post</th>
-                <th scope="col">Description</th>
                 <th scope="col">Image</th>
+                <th scope="col">Description</th>
                 <th scope="col">Action</th>
                 <th scope="col">Delete</th>
 
