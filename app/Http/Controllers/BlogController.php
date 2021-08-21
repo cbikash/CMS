@@ -17,7 +17,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs= Blog::all();
+        $blogs= Blog::paginate(10);
         return view('admin.blog.index',compact('blogs'));
     }
 
@@ -52,8 +52,9 @@ class BlogController extends Controller
             if($path){
                 $file->storeAs('gallery/blog/',$filename,'public');
             }
-            $project->image=$filename;
+            $blog->image=$filename;
         }
+        $blog->user_id = Auth::user()->id;
         $blog->save();
         return redirect('/admin/blog');
 
@@ -96,7 +97,7 @@ class BlogController extends Controller
         $blog->slug=Str::slug($request->title);
         
         if($file=$request->file('image')){
-            $this->deleteImage($blog);
+            $this->deleteoldimage($blog);
             $filename=$file->getClientOriginalName();
             $path= Image::make($file->getRealPath());
             $path->fit(600,400);
@@ -104,8 +105,9 @@ class BlogController extends Controller
             if($path){
                 $file->storeAs('gallery/blog/',$filename,'public');
             }
-            $project->image=$filename;
+            $blog->image=$filename;
         }
+      
         $blog->save();
         return redirect('/admin/blog');
     }
@@ -125,6 +127,7 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
+        $this->deleteoldimage($blog);
         $blog->delete();
         return redirect('/admin/blog');
 
