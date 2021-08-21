@@ -27,7 +27,7 @@ class CreateProjectsTable extends Migration
             $table->string('location');
             $table->string('project_value');
             $table->string('project_owner');
-            $table->string('created_by');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

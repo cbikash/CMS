@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class SliderController extends Controller
 {
@@ -14,7 +18,8 @@ class SliderController extends Controller
      */
     public function index()
     {
-        //
+        $sliders = Slider::all();
+        return view('admin.slider.index', compact('sliders'));
     }
 
     /**
@@ -24,7 +29,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.slider.create');
     }
 
     /**
@@ -35,41 +40,25 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $this->validate($request, [ 'description'   => 'required',
+                                    'image'         => 'required']);
+        $slider = new Slider;
+        $slider->description = $request->description;
+        if($file=$request->file('image')){
+            $filename=$file->getClientOriginalName();
+            $path= Image::make($file->getRealPath());
+            $path->fit(400,800);
+            $path->save(storage_path('app/public/slider/'.$filename));
+            if($path){
+                $file->storeAs('gallery/slider/',$filename,'public');
+            }
+            $slider->image=$filename;
+        }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Slider  $slider
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Slider $slider)
-    {
-        //
-    }
+        $slider->user_id = Auth::user()->id;
+        $slider->save();
+        return redirect('/admin/slider');
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Slider  $slider
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Slider $slider)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Slider  $slider
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Slider $slider)
-    {
-        //
     }
 
     /**
@@ -80,6 +69,7 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        //
+        $slider->delete();
+        return redirect('/admin/slider');
     }
 }

@@ -16,11 +16,14 @@ class CreateTeamsTable extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('slug');
             $table->string('post');
             $table->longText('description');
             $table->string('image');
-            $table->string('created_by');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('address');
+            $table->string('joined_at');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();   
         });
     }

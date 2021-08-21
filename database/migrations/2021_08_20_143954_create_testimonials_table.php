@@ -19,7 +19,7 @@ class CreateTestimonialsTable extends Migration
             $table->string('post_of');
             $table->longText('description');
             $table->string('image');
-            $table->string('created_by');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

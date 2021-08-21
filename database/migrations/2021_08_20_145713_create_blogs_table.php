@@ -19,7 +19,7 @@ class CreateBlogsTable extends Migration
             $table->string('slug');
             $table->longText('content');
             $table->string('image');
-            $table->string('created_by');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

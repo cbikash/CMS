@@ -26,6 +26,13 @@ Route::group(['middleware'=>'auth'], function (){
     Route::resource('/admin/category',\App\Http\Controllers\CategoryController::class);
     Route::resource('/admin/about',\App\Http\Controllers\AboutController::class);
     Route::resource('/admin/manufacture',\App\Http\Controllers\ManufactureController::class);
+    Route::resource('/admin/faq',\App\Http\Controllers\FaqController::class);
+    Route::resource('/admin/project',\App\Http\Controllers\ProjectController::class);
+    Route::resource('/admin/blog',\App\Http\Controllers\BlogController::class);
+    Route::resource('/admin/slider',\App\Http\Controllers\SliderController::class);
+    Route::resource('/admin/team',\App\Http\Controllers\TeamController::class);
+    Route::resource('/admin/client',\App\Http\Controllers\ClientController::class);
+    Route::resource('/admin/testimonial',\App\Http\Controllers\TestimonialController::class);
     Route::get('/admin/read/notification',[\App\Http\Controllers\EnquiryController::class,'readNotification'])->name('admin.read.notification');
     
 });

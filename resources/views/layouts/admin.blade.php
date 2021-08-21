@@ -301,7 +301,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Bikas chaudhary 2020 (+977 9845969704)</span>
+                        <span>Copyright &copy; Bikas chaudhary {{\Carbon\Carbon::now()->format('Y') }} (+977 9845969704)</span>
                     </div>
                 </div>
             </footer>

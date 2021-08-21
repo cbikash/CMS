@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class BlogController extends Controller
 {
@@ -14,7 +17,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs= Blog::all();
+        return view('admin.blog.index',compact('blogs'));
     }
 
     /**
@@ -24,7 +28,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+         return view('admin.blog.create');
     }
 
     /**
@@ -35,7 +39,24 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [ 'title' => 'required', 'content' => 'required', 'slug' => 'unique:blogs', 'image' => 'required' ]);
+        $blog= new Blog;
+        $blog->title=$request->title;
+        $blog->content=$request->content;
+        $blog->slug=Str::slug($request->title);
+        if($file=$request->file('image')){
+            $filename=$file->getClientOriginalName();
+            $path= Image::make($file->getRealPath());
+            $path->fit(600,400);
+            $path->save(storage_path('app/public/blog/'.$filename));
+            if($path){
+                $file->storeAs('gallery/blog/',$filename,'public');
+            }
+            $project->image=$filename;
+        }
+        $blog->save();
+        return redirect('/admin/blog');
+
     }
 
     /**
@@ -46,7 +67,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        return view('admin.blog.show',compact('blog'));
     }
 
     /**
@@ -57,7 +78,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        return view('admin.blog.edit',compact('blog'));
     }
 
     /**
@@ -69,7 +90,31 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        $this->validate($request, [ 'title' => 'required', 'content' => 'required', 'slug' => 'unique:blogs', 'image' => 'required' ]);
+        $blog->title=$request->title;
+        $blog->content=$request->content;
+        $blog->slug=Str::slug($request->title);
+        
+        if($file=$request->file('image')){
+            $this->deleteImage($blog);
+            $filename=$file->getClientOriginalName();
+            $path= Image::make($file->getRealPath());
+            $path->fit(600,400);
+            $path->save(storage_path('app/public/blog/'.$filename));
+            if($path){
+                $file->storeAs('gallery/blog/',$filename,'public');
+            }
+            $project->image=$filename;
+        }
+        $blog->save();
+        return redirect('/admin/blog');
+    }
+
+    protected function deleteoldimage($file){
+    if($path=$file->image){
+        Storage::delete('public/blog/'.$path);
+        Storage::delete('gallery/blog/'.$path);
+    }
     }
 
     /**
@@ -80,6 +125,8 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        $blog->delete();
+        return redirect('/admin/blog');
+
     }
 }
