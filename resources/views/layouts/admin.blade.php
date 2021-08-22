@@ -134,7 +134,104 @@
                 </div>
             </li>
 
-            
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsefaq"
+                   aria-expanded="true" aria-controls="collapseTwo1">
+                    <i class="fas fa-angle-double-right text-primary"></i>
+                    <span>Faq</span>
+                </a>
+                <div id="collapsefaq" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="py-2 collapse-inner rounded">
+                        <a class="collapse-item" href=" {{route('faq.index')}} ">Faq</a>
+                        <a class="collapse-item" href=" {{route('faq.create')}} ">Add Faq</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#project"
+                   aria-expanded="true" aria-controls="collapseTwo1">
+                    <i class="fas fa-angle-double-right text-primary"></i>
+                    <span>Project</span>
+                </a>
+                <div id="project" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="py-2 collapse-inner rounded">
+                        <a class="collapse-item" href=" {{route('project.index')}} ">Project</a>
+                        <a class="collapse-item" href=" {{route('project.create')}} ">Add Project</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseblog"
+                   aria-expanded="true" aria-controls="collapseTwo1">
+                    <i class="fas fa-angle-double-right text-primary"></i>
+                    <span>Blog</span>
+                </a>
+                <div id="collapseblog" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="py-2 collapse-inner rounded">
+                        <a class="collapse-item" href=" {{route('blog.index')}} ">Blog</a>
+                        <a class="collapse-item" href=" {{route('blog.create')}} ">Add Blog</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseoneslider"
+                   aria-expanded="true" aria-controls="collapseTwo1">
+                    <i class="fas fa-angle-double-right text-primary"></i>
+                    <span>Slider</span>
+                </a>
+                <div id="collapseoneslider" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="py-2 collapse-inner rounded">
+                        <a class="collapse-item" href=" {{route('slider.index')}} ">Slider</a>
+                        <a class="collapse-item" href=" {{route('slider.create')}} ">Add Slider</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#oneteam"
+                   aria-expanded="true" aria-controls="collapseTwo1">
+                    <i class="fas fa-angle-double-right text-primary"></i>
+                    <span>Team</span>
+                </a>
+                <div id="oneteam" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="py-2 collapse-inner rounded">
+                        <a class="collapse-item" href=" {{route('team.index')}} ">Team</a>
+                        <a class="collapse-item" href=" {{route('team.create')}} ">Add Team</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseclient"
+                   aria-expanded="true" aria-controls="collapseTwo1">
+                    <i class="fas fa-angle-double-right text-primary"></i>
+                    <span>Client</span>
+                </a>
+                <div id="collapseclient" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="py-2 collapse-inner rounded">
+                        <a class="collapse-item" href=" {{route('client.index')}} ">Client</a>
+                        <a class="collapse-item" href=" {{route('client.create')}} ">Add Client</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsetestimonial"
+                   aria-expanded="true" aria-controls="collapseTwo1">
+                    <i class="fas fa-angle-double-right text-primary"></i>
+                    <span>Testimonial</span>
+                </a>
+                <div id="collapsetestimonial" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="py-2 collapse-inner rounded">
+                        <a class="collapse-item" href=" {{route('testimonial.index')}} ">Testimonial</a>
+                        <a class="collapse-item" href=" {{route('testimonial.create')}} ">Add Testimonial</a>
+                    </div>
+                </div>
+            </li>
+
         </ul>
 
     </div>

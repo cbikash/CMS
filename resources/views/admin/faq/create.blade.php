@@ -12,8 +12,8 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
-                <li class="breadcrumb-item"><a href=" {{ route('about.index') }} ">About</a></li>
-                <li class="breadcrumb-item active " aria-current="page">Create About</li>
+                <li class="breadcrumb-item"><a href=" {{ route('faq.index') }} ">Faq</a></li>
+                <li class="breadcrumb-item active " aria-current="page">Create Faq</li>
             </ol>
         </nav>
         </div>
