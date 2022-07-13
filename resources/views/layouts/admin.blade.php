@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <title>MINNANO DAISUKI</title>
+    <link rel="icon" href="{{asset('admin/logo_small.jpg')}}" />
     <!-- Custom fonts for this template-->
     <link href=" {{asset('admin/assets/css/all.min.css')}} " rel="stylesheet" type="text/css">
      <link href="{{asset('admin/assets/css/css.css')}} " rel="stylesheet" type="text/css">
@@ -42,7 +44,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('home')}}">
                 <div class="sidebar-brand-icon ">
-                   AC POWER
+                   MINNANO DAISUKI
                 </div>
             </a>
 
@@ -65,47 +67,47 @@
                     <span>Enquiry</span></a>
             </li>
             <!-- <hr class="sidebar-divider"> -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoc"
-                   aria-expanded="true" aria-controls="collapseTwo1">
-                    <i class="fas fa-angle-double-right text-info"></i>
-                    <span>Category</span>
-                </a>
-                <div id="collapseTwoc" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="py-2 collapse-inner rounded">
-                        <a class="collapse-item" href=" {{route('category.index')}} ">Category</a>
-                        <a class="collapse-item" href=" {{route('category.create')}} ">Add Category</a>
-                    </div>
-                </div>
-            </li>
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoc"--}}
+{{--                   aria-expanded="true" aria-controls="collapseTwo1">--}}
+{{--                    <i class="fas fa-angle-double-right text-info"></i>--}}
+{{--                    <span>Category</span>--}}
+{{--                </a>--}}
+{{--                <div id="collapseTwoc" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">--}}
+{{--                    <div class="py-2 collapse-inner rounded">--}}
+{{--                        <a class="collapse-item" href=" {{route('category.index')}} ">Category</a>--}}
+{{--                        <a class="collapse-item" href=" {{route('category.create')}} ">Add Category</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </li>--}}
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                    <i class="fas fa-hotdog text-danger"></i>
-                    <span>Products</span>
+                    <span>Courses</span>
                 </a>
                 <div id="collapseTwo" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="py-2 collapse-inner rounded">
-                        <a class="collapse-item" href=" {{route('product.index')}} ">Products</a>
-                        <a class="collapse-item" href=" {{route('product.create')}} ">Add Products</a>
+                        <a class="collapse-item" href=" {{route('product.index')}} ">Courses</a>
+                        <a class="collapse-item" href=" {{route('product.create')}} ">Add Course</a>
                     </div>
                 </div>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo1"
-                   aria-expanded="true" aria-controls="collapseTwo1">
-                    <i class="fas fa-car-battery text-success"></i>
-                    <span>Service</span>
-                </a>
-                <div id="collapseTwo1" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="py-2 collapse-inner rounded">
-                        <a class="collapse-item" href=" {{route('service.index')}} ">Services</a>
-                        <a class="collapse-item" href=" {{route('service.create')}} ">Add Services</a>
-                    </div>
-                </div>
-            </li>
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo1"--}}
+{{--                   aria-expanded="true" aria-controls="collapseTwo1">--}}
+{{--                    <i class="fas fa-car-battery text-success"></i>--}}
+{{--                    <span>Service</span>--}}
+{{--                </a>--}}
+{{--                <div id="collapseTwo1" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">--}}
+{{--                    <div class="py-2 collapse-inner rounded">--}}
+{{--                        <a class="collapse-item" href=" {{route('service.index')}} ">Services</a>--}}
+{{--                        <a class="collapse-item" href=" {{route('service.create')}} ">Add Services</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </li>--}}
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoab"
@@ -120,19 +122,20 @@
                     </div>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoman"
-                   aria-expanded="true" aria-controls="collapseTwo1">
-                    <i class="fas fa-angle-double-right text-primary"></i>
-                    <span>Manufacture</span>
-                </a>
-                <div id="collapseTwoman" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="py-2 collapse-inner rounded">
-                        <a class="collapse-item" href=" {{route('manufacture.index')}} ">Manufacture</a>
-                        <a class="collapse-item" href=" {{route('manufacture.create')}} ">Add Manufacture Product</a>
-                    </div>
-                </div>
-            </li>
+
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoman"--}}
+{{--                   aria-expanded="true" aria-controls="collapseTwo1">--}}
+{{--                    <i class="fas fa-angle-double-right text-primary"></i>--}}
+{{--                    <span>Manufacture</span>--}}
+{{--                </a>--}}
+{{--                <div id="collapseTwoman" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">--}}
+{{--                    <div class="py-2 collapse-inner rounded">--}}
+{{--                        <a class="collapse-item" href=" {{route('manufacture.index')}} ">Manufacture</a>--}}
+{{--                        <a class="collapse-item" href=" {{route('manufacture.create')}} ">Add Manufacture Product</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </li>--}}
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsefaq"
@@ -148,19 +151,19 @@
                 </div>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#project"
-                   aria-expanded="true" aria-controls="collapseTwo1">
-                    <i class="fas fa-angle-double-right text-primary"></i>
-                    <span>Project</span>
-                </a>
-                <div id="project" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="py-2 collapse-inner rounded">
-                        <a class="collapse-item" href=" {{route('project.index')}} ">Project</a>
-                        <a class="collapse-item" href=" {{route('project.create')}} ">Add Project</a>
-                    </div>
-                </div>
-            </li>
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#project"--}}
+{{--                   aria-expanded="true" aria-controls="collapseTwo1">--}}
+{{--                    <i class="fas fa-angle-double-right text-primary"></i>--}}
+{{--                    <span>Project</span>--}}
+{{--                </a>--}}
+{{--                <div id="project" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">--}}
+{{--                    <div class="py-2 collapse-inner rounded">--}}
+{{--                        <a class="collapse-item" href=" {{route('project.index')}} ">Project</a>--}}
+{{--                        <a class="collapse-item" href=" {{route('project.create')}} ">Add Project</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </li>--}}
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseblog"
@@ -295,7 +298,7 @@
                                 <i class="fas fa-bell fa-fw"></i>
                                @if(count(auth()->user()->unreadNotifications) != 0)
                             <span class="badge badge-danger badge-counter">{{count(auth()->user()->unreadnotifications)}}+</span>
-                            @endif 
+                            @endif
                             </a>
 
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -315,7 +318,7 @@
                                 <a class="dropdown-item d-flex align-items-center" href="
                                      @if ($notification->data['notification_type'] == "Message")
                                      {{route('message.show',$notification->data['notification_id'])}}
-                                      @else 
+                                      @else
                                       {{route('enquiry.show',$notification->data['notification_id'])}}
                                       @endif" >
                                     <div class="mr-3">
@@ -337,7 +340,7 @@
                                 <a class="dropdown-item text-center  text-gray-500" href="#">No any Notification Available</a>
 
                             @endif
-{{-- 
+{{--
 
 
 
@@ -348,7 +351,7 @@
                                         <span class="font-weight-bold">A new monthly report is ready to download!</span>
                                     </div>
                                 </a>
-                                
+
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a> --}}
                             </div>
                         </li>
@@ -408,19 +411,6 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
-
-
-  <script>
-        ClassicEditor
-            .create( document.querySelector( '#editor' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-    </script>
-
-
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

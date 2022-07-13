@@ -21,10 +21,13 @@ class CreateTeamsTable extends Migration
             $table->string('image');
             $table->string('phone');
             $table->string('email');
+            $table->string('facebook')->nullable(true);
+            $table->string('instagram')->nullable(true);
+            $table->string('viber')->nullable(true);
             $table->string('address');
             $table->string('joined_at');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->timestamps();   
+            $table->timestamps();
         });
     }
 

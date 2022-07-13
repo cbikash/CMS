@@ -18,7 +18,7 @@ use \App\Http\Controllers\FrontendController;
 
 Auth::routes();
 Route::group(['middleware'=>'auth'], function (){
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('/admin/product',ProductController::class);
     Route::resource('/admin/service',\App\Http\Controllers\ServiceController::class);
     Route::resource('/admin/message',\App\Http\Controllers\MessageController::class);
@@ -34,25 +34,25 @@ Route::group(['middleware'=>'auth'], function (){
     Route::resource('/admin/client',\App\Http\Controllers\ClientController::class);
     Route::resource('/admin/testimonial',\App\Http\Controllers\TestimonialController::class);
     Route::get('/admin/read/notification',[\App\Http\Controllers\EnquiryController::class,'readNotification'])->name('admin.read.notification');
-    
+
 });
 
 
 
 Route::group(['middleware'=>'web'], function (){
-    Route::get('/', [FrontendController::class,'index'])-> name('front');
-    Route::get('/about', [FrontendController::class,'about'])-> name('front.about');
-    Route::get('/contact', [FrontendController::class,'contact'])-> name('front.contact');
-    Route::post('/contact/message', [FrontendController::class,'storemessage']);
-    Route::post('/enquery/product',[FrontendController::class,'storeenquery']);
-    Route::get('/services', [FrontendController::class,'services'])-> name('front.services');
-    Route::get('/service/{service:slug}', [FrontendController::class,'service'])-> name('front.service');
-    Route::get('/products', [FrontendController::class,'products'])-> name('front.products');
-    Route::get('/manufactures', [FrontendController::class,'manufactures'])-> name('front.manufactures');
-    Route::get('/enquiry', [FrontendController::class,'enquiry'])-> name('front.enquiry');
-    Route::get('/product/{product:slug}', [FrontendController::class,'product'])-> name('front.product');
-    Route::get('/manufacture/{manufacture:slug}', [FrontendController::class,'manufacture'])-> name('front.manufacture');
-    Route::get('/product/search/data/', [FrontendController::class,'productsearch'])-> name('front.product.search');
-    Route::get('/product/category/{category:slug}', [FrontendController::class,'productcategory'])-> name('front.product.category');
-    
+//    Route::get('/', [FrontendController::class,'index'])-> name('front');
+//    Route::get('/about', [FrontendController::class,'about'])-> name('front.about');
+//    Route::get('/contact', [FrontendController::class,'contact'])-> name('front.contact');
+//    Route::post('/contact/message', [FrontendController::class,'storemessage']);
+//    Route::post('/enquery/product',[FrontendController::class,'storeenquery']);
+//    Route::get('/services', [FrontendController::class,'services'])-> name('front.services');
+//    Route::get('/service/{service:slug}', [FrontendController::class,'service'])-> name('front.service');
+//    Route::get('/products', [FrontendController::class,'products'])-> name('front.products');
+//    Route::get('/manufactures', [FrontendController::class,'manufactures'])-> name('front.manufactures');
+//    Route::get('/enquiry', [FrontendController::class,'enquiry'])-> name('front.enquiry');
+//    Route::get('/product/{product:slug}', [FrontendController::class,'product'])-> name('front.product');
+//    Route::get('/manufacture/{manufacture:slug}', [FrontendController::class,'manufacture'])-> name('front.manufacture');
+//    Route::get('/product/search/data/', [FrontendController::class,'productsearch'])-> name('front.product.search');
+//    Route::get('/product/category/{category:slug}', [FrontendController::class,'productcategory'])-> name('front.product.category');
+
 });

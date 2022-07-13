@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Faq;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FaqController extends Controller
 {
@@ -26,7 +27,7 @@ class FaqController extends Controller
     public function create()
     {
         return view('admin.faq.create');
-        
+
     }
 
     /**
@@ -41,6 +42,7 @@ class FaqController extends Controller
         $faq = new Faq;
         $faq->question = $request->input('question');
         $faq->answer = $request->input('answer');
+        $faq->user_id = Auth::user()->id;
         $faq->save();
         return redirect('/admin/faq');
     }

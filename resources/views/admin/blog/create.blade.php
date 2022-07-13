@@ -17,7 +17,7 @@
             </ol>
         </nav>
         </div>
-        
+
         <div class="col-md-12 col-space">
             <h3>Add Blog</h3>
             <hr>
@@ -55,5 +55,16 @@
         </div>
     </div>
 </div>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector( '#ckeditor' ))
+        .then( editor => {
+            window.editor = editor;
+        } )
+        .catch( error => {
+            console.error( error );
+        });
+</script>
 @endsection
 

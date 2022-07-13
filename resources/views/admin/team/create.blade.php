@@ -17,7 +17,7 @@
             </ol>
         </nav>
         </div>
-        
+
         <div class="col-md-12 col-space">
             <h3>Add Team</h3>
             <hr>
@@ -71,6 +71,30 @@
                         @enderror
                     </div>
                 </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="inputEmail4">Address</label>
+                    <input type="text" name="facebook" class="form-control" value="{{old('facebook')}}"  placeholder="Facebook Link">
+                    @error('facebook')
+                    <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
+                    @enderror
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="inputEmail4">Post</label>
+                    <input type="text" name="instagram" class="form-control" value="{{old('instagram')}}"  placeholder="Instagram url">
+                    @error('instagram')
+                    <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
+                    @enderror
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="joined_at">Joined At</label>
+                    <input type="text" name="viber" class="form-control" value="{{old('viber')}}"  placeholder="Viber Number">
+                    @error('viber')
+                    <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
+                    @enderror
+                </div>
+            </div>
 
                 <div class="form-group">
                     <label for="">Choose  Image</label>

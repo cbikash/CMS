@@ -33,29 +33,53 @@
                 </div>
                 <div class="form-group">
                     <label></label>
-                    <textarea name="content" rows="10" class="form-control">{{old('content')}}</textarea>
-                    @error('content')
+                    <textarea name="description" rows="10" id="ckeditor" class="form-control description">{{old('description')}}</textarea>
+                    @error('description')
                     <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
                     @enderror
                 </div>
-                  <div class="form-check">
-                    <input type="checkbox" name="feature" value="1" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Feature Content</label>
-                </div>
-                @if ($counth != 1)
-                     <div class="form-check">
-                    <input type="checkbox" name="home" value="1" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Home Page Content</label>
-                </div>
-                @endif
-               
+
+            <div class="form-group">
+                <select name="type" class="form-select form-control" aria-label="Default select example">
+                    <option selected>-- Select About Type --</option>
+                    @foreach($aboutTypes as $key => $aboutType  )
+                        <option value="{{$key}}"> {{$aboutType}}</option>
+                    @endforeach
+                </select>
+
+                @error('type')
+                <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
+                @enderror
+            </div>
+
                 <br>
+            <div class="form-group">
+                <label for="">Choose Image</label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="image" value="{{old('image')}}" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
+                @error('image')
+                <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
+                @enderror
+            </div>
 
                 {!! Form::submit('Add About',['class'=>'btn btn-success shadow']) !!}
                 {!! Form::close() !!}
         </div>
     </div>
 </div>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector( '#ckeditor' ))
+        .then( editor => {
+            window.editor = editor;
+        } )
+        .catch( error => {
+            console.error( error );
+        });
+</script>
 
 
 @endsection

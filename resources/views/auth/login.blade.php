@@ -13,7 +13,7 @@
   </head>
   <style>
       body{
-          background-image: url("{{asset('admin/electonic.jpeg')}}");
+          background-image: url("{{asset('admin/japnes.jpg')}}");
           background-repeat: no-repeat;
           background-size: cover;
       }
@@ -28,7 +28,7 @@
           background-color: white;
           padding: 25px 50px;
           width: 35%;
-          -webkit-box-shadow: 0px 0px 14px -4px #000000; 
+          -webkit-box-shadow: 0px 0px 14px -4px #000000;
           box-shadow: 0px 0px 14px -4px #000000;
           min-width: 400px;
       }
@@ -59,8 +59,8 @@
     <div class="container">
         <div class="row">
             <div class="col ">
-            <div class="logo-section d-flex justify-content-center"> 
-                <p> <span>A C P O W E R</span></h3></p></div>
+            <div class="logo-section d-flex justify-content-center">
+                <p> <span>M I N N A N O D A I S U K I</span></h3></p></div>
                <div class="align-self-center login-section">
                     <p align="center">Login To Your Account</p>
                     <div class="text-danger" align="center"></div>
@@ -77,7 +77,7 @@
                         </div>
 
                         <div class="form-group">
-                            
+
                                 <input id="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
@@ -85,7 +85,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                           
+
                         </div>
                         <div class="form-group row">
                             <div class="col-md-6">

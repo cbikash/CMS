@@ -17,16 +17,17 @@
             </ol>
         </nav>
         </div>
-        
+
                         <div class="col-sm-12 col-lg-12 col-xl-12">
                          <div class="body-content">
-                              <div class="table-responsive"> 
+                              <div class="table-responsive">
                            <table class="table table-hover">
                             <thead class="thead-custom">
                                 <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Title</th>
                                     <th scope="col">Description</th>
+                                    <th scope="col">Image</th>
                                     <th scope="col">Type</th>
                                     <th scope="col">Action</th>
                                     <th scope="col">Delete</th>
@@ -38,8 +39,9 @@
                                 <tr>
                                 <th scope="row">{{  $loop->iteration  }}</th>
                                 <td>{{$about->title}}</td>
-                               
-                                    <td>{{ Str::limit($about->content, 50)}}</td>
+
+                                    <td>{{ Str::limit($about->description, 50)}}</td>
+                                    <td>{{$about->type}}</td>
                                     <td>@if($about->feature == 1) featured @endif @if($about->home == 1) Home @endif</td>
                                     <td>
                                         <a href="{{route('about.show', $about)}}" class="text-success"> <i class="fas fa-eye"></i></a>

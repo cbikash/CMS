@@ -20,7 +20,7 @@ class TeamController extends Controller
     {
         $teams = Team::paginate(10);
         return view('admin.team.index', compact('teams'));
-    
+
     }
 
     /**
@@ -41,7 +41,7 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, 
+        $this->validate($request,
         ['name'=>'required|max:255',
          'email'=>'required|email|max:255',
          'image'=>'image|mimes:jpeg,png,bmp,gif, or svg',
@@ -59,6 +59,9 @@ class TeamController extends Controller
         $team->phone = $request->phone;
         $team->address = $request->address;
         $team->joined_at = $request->joined_at;
+        $team->facebook = $request->facebook;
+        $team->instagram = $request->instagram;
+        $team->viber = $request->viber;
         $team->user_id = Auth::user()->id;
 
         if($file=$request->file('image')){
@@ -107,7 +110,7 @@ class TeamController extends Controller
      */
     public function update(Request $request, Team $team)
     {
-        $this->validate($request, 
+        $this->validate($request,
         ['name'=>'required|max:255',
          'email'=>'required|email|max:255',
          'image'=>'image|mimes:jpeg,png,bmp,gif, or svg',
