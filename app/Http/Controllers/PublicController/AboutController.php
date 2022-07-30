@@ -6,11 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\AboutResource;
 use App\Http\Resources\BlogResource;
 use App\Http\Resources\TesimonialResource;
+use App\Http\Resources\CourseResource;
 use App\Models\Blog;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Models\About;
+use App\Models\Product;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Resources\Json\ResourceResponse;
 
 class AboutController extends Controller
 {
@@ -51,6 +54,10 @@ class AboutController extends Controller
 
     public function testimonialList(){
         return TesimonialResource::collection(Testimonial::latest()->get());
+    }
+
+    public function coursesList(){
+        return CourseResource::collection(Product::latest()->get());
     }
 
 }

@@ -12,7 +12,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
-                <li class="breadcrumb-item active " aria-current="page">Slider (<a href="{{route('slider.create')}}">Add Slider</a>)</li>
+                <li class="breadcrumb-item active " aria-current="page">Subscribers </li>
             </ol>
         </nav>
         </div>
@@ -23,23 +23,15 @@
             <thead class="thead-custom bg-table-head">
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">Image</th>
-                <th scope="col">Description</th>
-                <th scope="col">Delete</th>
+                <th scope="col">Eamil</th>
                 </tr>
             </thead>
             <tbody>
-            @foreach($sliders as $slider)
+            @foreach($subscirbes as $subsciber)
                 <tr>
                     <th scope="row">{{  $loop->iteration  }}</th>
-                    <td><img src="{{asset('storage/gallery/slider/'.$slider->image)}}" class="img-fluid" height="50" width="150"  alt=""></td>
-                    <td>{{ Str::limit($slider->description, 50)}}</td>
-                    <td>
-                        {!! Form::open(['method'=>'DELETE', 'action'=>['App\Http\Controllers\SliderController@destroy', $slider]]) !!}
-                        @csrf
-                        <button class="btn text-danger"><i class="fas fa-trash"></i></button>
-                        {!! Form::close() !!}
-                    </td>
+                   
+                    <td>{{$subsciber->email}}</td>
                 </tr>
             @endforeach
             </tbody>

@@ -39,7 +39,7 @@ class ProductController extends Controller
             $input['coverImage']=$filename;
         }
 
-
+       
         Product::create($input);
         return redirect(route('product.index'));
     }
@@ -59,7 +59,7 @@ class ProductController extends Controller
         return view('admin.product.updateProduct',compact('product','categories'));
     }
     public function update(Request $productRequest,Product $product){
-        $productRequest->validate(['title'=>'required','description'=>'required','price'=>'required']);
+        $productRequest->validate(['title'=>'required','description'=>'required']);
         $input=$productRequest->all();
         $input['slug'] = Str::slug($productRequest->title);
 

@@ -25,11 +25,8 @@ class ProductRequest extends FormRequest
     {
         return [
             'title' => 'max:100|required',
-            'price' => 'required',
             'description' => 'required',
             'coverImage' =>'image|mimes:jpeg,png,bmp,gif, or svg',
-            'category_id' => 'required',
-            'discountAmount'=>'numeric',
             'slug' => 'unique:products',
         ];
     }

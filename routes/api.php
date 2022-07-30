@@ -28,4 +28,8 @@ Route::get('/blog/{id}',[AboutController::class,'singleBlog']);
 Route::get('/team', [\App\Http\Controllers\PublicController\TeamController::class,'index']);
 Route::get('/testimonial',[AboutController::class,'testimonialList']);
 Route::post('/contact', [\App\Http\Controllers\PublicController\ContactController::class,'contact']);
+Route::post('/subscribe',[\App\Http\Controllers\SubscribeController::class,'store']);
+Route::post('/apply',[\App\Http\Controllers\PublicController\ContactController::class,'enquery']);
+Route::get('/list/course',[\App\Http\Controllers\PublicController\AboutController::class,'coursesList']);
+
 

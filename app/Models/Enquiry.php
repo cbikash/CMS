@@ -12,11 +12,9 @@ class Enquiry extends Model
     protected $fillable= [
         'name',
         'phone',
-        'message',
-        'email',
-        'product_id',
-        'quantity',
-        'address',
+        'levels',
+        'apply',
+        'seen'
     ];
 
     /**

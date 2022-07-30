@@ -26,8 +26,8 @@
         <div class="col-sm-12 col-lg-12 col-xl-12">
             <div class="body-content">
  <div class="table-responsive"> 
-                <table class="table table-hover ">
-                    <thead class="thead-custom">
+                <table class="table table-hover custom-table ">
+                    <thead class="thead-custom bg-table-head">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Question/Answer</th>
@@ -38,14 +38,14 @@
                     @foreach($faqs as $faq)
                         <tr>
                             <th scope="row">{{  $loop->iteration  }}</th>
-                            <td> <h4 class="text-secondary">{{ $faq->question }}</h4>
+                            <td> <h6 class="text-secondary">{{ $faq->question }}</h6>
                                 <p>{{ $faq->answer }}</p>
                             </td>
                             <td>
-                                <a href="{{route('faq.edit', $faq)}}"> <button CLASS="btn btn-danger"><i class="fas fa-pencil-alt">  </i> </button></a>
+                                <a href="{{route('faq.edit', $faq)}}"> <button CLASS="btn text-info"><i class="fas fa-pencil-alt">  </i> </button></a>
                                 {!! Form::open(['method'=>'DELETE', 'action'=>['App\Http\Controllers\FaqController@destroy', $faq]]) !!}
                                 @csrf
-                                <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                <button class="btn text-danger"><i class="fas fa-trash"></i></button>
                                 {!! Form::close() !!}
                             </td>
 

@@ -18,7 +18,7 @@ class TesimonialResource extends JsonResource
 
     {
         $baseUrl = env('APP_URL');
-        $path = $baseUrl.'storage/gallery/testimonial/' ;
+        $path = $baseUrl.'/storage/gallery/testimonial/' ;
 
         return [
             'name' => $this->name,

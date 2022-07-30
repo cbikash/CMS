@@ -55,5 +55,16 @@
         </div>
     </div>
 </div>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector( '#ckeditor' ))
+        .then( editor => {
+            window.editor = editor;
+        } )
+        .catch( error => {
+            console.error( error );
+        });
+</script>
 @endsection
 

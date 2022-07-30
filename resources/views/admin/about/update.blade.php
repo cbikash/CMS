@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-group">
                     <label></label>
-                    <textarea name="content" rows="10" class="form-control">{{$about->content}}</textarea>
+                    <textarea name="content" rows="10"  id="ckeditor" class="form-control description">{{$about->description}}</textarea>
                     @error('content')
                     <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
                     @enderror
@@ -53,5 +53,14 @@
     </div>
 </div>
 
-
+<script>
+    ClassicEditor
+        .create(document.querySelector( '#ckeditor' ))
+        .then( editor => {
+            window.editor = editor;
+        } )
+        .catch( error => {
+            console.error( error );
+        });
+</script>
 @endsection

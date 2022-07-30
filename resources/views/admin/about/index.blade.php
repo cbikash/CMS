@@ -21,8 +21,8 @@
                         <div class="col-sm-12 col-lg-12 col-xl-12">
                          <div class="body-content">
                               <div class="table-responsive">
-                           <table class="table table-hover">
-                            <thead class="thead-custom">
+                           <table class="table table-hover custom-table">
+                            <thead class="thead-custom bg-table-head ">
                                 <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Title</th>
@@ -40,7 +40,7 @@
                                 <th scope="row">{{  $loop->iteration  }}</th>
                                 <td>{{$about->title}}</td>
 
-                                    <td>{{ Str::limit($about->description, 50)}}</td>
+                                    <td>{{ Str::limit(strip_tags($about->description), 50)}}</td>
                                     <td>{{$about->type}}</td>
                                     <td>@if($about->feature == 1) featured @endif @if($about->home == 1) Home @endif</td>
                                     <td>
@@ -49,7 +49,7 @@
                                     </td><td>
                                         {!! Form::open(['method'=>'DELETE', 'action'=>['App\Http\Controllers\AboutController@destroy', $about]]) !!}
                                         @csrf
-                                        <button CLASS="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                        <button CLASS="btn"><i class="fas fa-trash"></i></button>
                                         {!! Form::close() !!}
                                     </td>
 

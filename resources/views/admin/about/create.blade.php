@@ -40,8 +40,8 @@
                 </div>
 
             <div class="form-group">
-                <select name="type" class="form-select form-control" aria-label="Default select example">
-                    <option selected>-- Select About Type --</option>
+                <select name="type" class="form-select form-control" required aria-label="Default select example">
+                    <option selected>Select about type</option>
                     @foreach($aboutTypes as $key => $aboutType  )
                         <option value="{{$key}}"> {{$aboutType}}</option>
                     @endforeach

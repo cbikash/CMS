@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEnquiriesTable extends Migration
+class CreateSubscribesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreateEnquiriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('enquiries', function (Blueprint $table) {
+        Schema::create('subscribes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->string('email');
-            $table->string('phone');
-            $table->string('levels');
-            $table->Longtext('apply');
-            $table->tinyInteger('seen')->default(0);
-            $table->tinyInteger('deleted')->default(0);
+            $table->boolean('deleted')->default(0);
+            $table->boolean('subscribe')->default(1);
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ class CreateEnquiriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('enquiries');
+        Schema::dropIfExists('subscribes');
     }
 }

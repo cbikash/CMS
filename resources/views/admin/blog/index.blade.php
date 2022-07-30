@@ -20,8 +20,8 @@
         <div class="col-sm-12 col-lg-12 col-xl-12">
             <div class="body-content">
         <div class="table-responsive"> 
-            <table class="table table-hover ">
-            <thead class="thead-custom">
+            <table class="table table-hover custom-table ">
+            <thead class="thead-custom bg-table-head">
                 <tr>
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
@@ -39,14 +39,14 @@
                 <td>{{$blog->title}} 
                 </td>
                 <td><img src="{{asset('storage/gallery/blog/'.$blog->image)}}" class="img-fluid" height="50" width="100"  alt=""></td>
-                <td>{{ Str::limit($blog->content, 50)}}</td>
+                <td>{{ Str::limit(strip_tags($blog->content), 50)}}</td>
                     <td>
                         <a href="{{route('blog.show', $blog)}}" class="text-success"> <i class="fas fa-eye"></i></a>
                         <a href="{{route('blog.edit', $blog)}}" class="text-info"> <i class="fas fa-pencil-alt"></i></a>
                     </td><td>
                         {!! Form::open(['method'=>'DELETE', 'action'=>['App\Http\Controllers\BlogController@destroy', $blog]]) !!}
                         @csrf
-                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                        <button class="btn text-danger text-small"><i class="fas fa-trash"></i></button>
                         {!! Form::close() !!}
                     </td>
 

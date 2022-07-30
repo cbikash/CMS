@@ -40,4 +40,11 @@ class HomeController extends Controller
         $service=Service::all()->count();
         return view('admin.home.home',compact('product','category','message','enquiry','manufacture','about','service'));
     }
+
+
+
+    public function changePassword(Requet $request){
+        
+        
+    }
 }

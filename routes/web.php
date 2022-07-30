@@ -32,9 +32,10 @@ Route::group(['middleware'=>'auth'], function (){
     Route::resource('/admin/slider',\App\Http\Controllers\SliderController::class);
     Route::resource('/admin/team',\App\Http\Controllers\TeamController::class);
     Route::resource('/admin/client',\App\Http\Controllers\ClientController::class);
+    Route::get('/admin/subscriber/list',[\App\Http\Controllers\SubscribeController::class,'index']);
     Route::resource('/admin/testimonial',\App\Http\Controllers\TestimonialController::class);
+    Route::post('/admin/change-password',[\App\Http\Controllers\HomeController::class,'changePassword'])->name('change.password');
     Route::get('/admin/read/notification',[\App\Http\Controllers\EnquiryController::class,'readNotification'])->name('admin.read.notification');
-
 });
 
 

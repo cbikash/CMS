@@ -14,11 +14,9 @@ class Constant
     const STUDY_IN_JAPAN = '105';
 
     static $aboutTypes = [
-        self::Home_DESCRIPTION => 'Description of Home page',
+        self::Home_DESCRIPTION => 'Home Page',
         self::About_PAGE => 'About Page',
-        self::FOOTER_ABOUT => 'Footer About',
-        self::APPLY_PAGE => 'Apply process page',
-        self::STUDY_IN_JAPAN => 'Study in japan'
+        self::FOOTER_ABOUT => 'Footer Section',
     ];
 
 }

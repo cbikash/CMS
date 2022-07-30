@@ -20,8 +20,8 @@
         <div class="col-sm-12 col-lg-12 col-xl-12">
             <div class="body-content">
         <div class="table-responsive"> 
-            <table class="table table-hover ">
-            <thead class="thead-custom">
+            <table class="table table-hover custom-table">
+            <thead class="thead-custom bg-table-head">
                 <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
@@ -40,7 +40,7 @@
                 <td>
                         {!! Form::open(['method'=>'DELETE', 'action'=>['App\Http\Controllers\ClientController@destroy', $client]]) !!}
                         @csrf
-                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                        <button class="btn text-danger"><i class="fas fa-trash"></i></button>
                         {!! Form::close() !!}
                     </td>
 

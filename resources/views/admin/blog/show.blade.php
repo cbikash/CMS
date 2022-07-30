@@ -16,7 +16,7 @@
                <img src="{{asset('storage/gallery/blog/'.$blog->image)}}" class="img-fluid" width="100%" alt="">
                 <div class="card-body">
                     <h5 class="card-title">{{$blog->title}}</h5>
-                    <p class="card-text">{{$blog->content}}</p>
+                    <p class="card-text">{!! $blog->content !!}</p>
                 </div>
                 </div>
             </div>

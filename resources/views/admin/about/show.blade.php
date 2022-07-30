@@ -34,7 +34,7 @@
             <div class="jumbotron">
                 <h1 class="display-4"> {{$about->title}} </h1>
                 <hr class="my-4">
-                <p>{{$about->content}}</p>
+                <p>{{strip_tags($about->description)}}</p>
                 
                 </div>
         </div>

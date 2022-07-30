@@ -109,6 +109,7 @@
 
     .body-content{
         background-color: white;
+        padding: 10px;
     }
     /*
     d
@@ -143,3 +144,26 @@
  table{
      width: 100% !important;
  }
+
+
+ .custom-table {
+    /* border: 1px solid rgba(0,0,0,.12); */
+    /* border: 1px solid #e8e8e8; */
+    font-size: 12px;
+}
+.bg-table-head {
+    background: #edf0f3;
+    color: #4375ba;
+    white-space: nowrap;
+    /* background: linear-gradient(#f2f3fa,#edf0f3); */
+    /* background: linear-gradient(#ffffff, #edf0f3); */
+    color: #50649c;
+    background-color: #eff2f9;
+    border-color: #eaf0f7;
+}
+
+#wrapper #content-wrapper {
+    background-color: #eaf0f7 !important;
+    width: 100%;
+    overflow-x: hidden;
+}
