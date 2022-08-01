@@ -478,7 +478,7 @@
                 </style>
 
                 <div class="container-fluid content">
-                    <div class="page-header page-header-default">
+                    <!-- <div class="page-header page-header-default">
                         <div class="page-heading clearfix">
                             <h2 class="panel-title" style="margin-bottom:5px;">
                                 Program
@@ -493,7 +493,7 @@
                             </ul>
                         </div>
 
-                    </div>
+                    </div> -->
                     <hr style="border-bottom: 1px solid #f9f9f9; border-top: 1px solid #dedede;margin-top: 0;">
                     @yield('content')
                 </div>

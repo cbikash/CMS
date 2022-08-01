@@ -38,7 +38,6 @@ class SubscribeController extends Controller
     {
         $message = "";
         $value = Subscribe::where('email', $request->email)->first();
-        dd($value);
         if($value){
             $message = "Email has already Subscribe";
         }else{
