@@ -167,3 +167,43 @@
     width: 100%;
     overflow-x: hidden;
 }
+
+.addBtn{
+    z-index: 999;
+    float: right;
+    position: fixed;
+}
+nav.fab-container {
+    z-index: 99;
+}
+.fab-container {
+    bottom: 10vh;
+    position: fixed;
+    margin: 1em;
+    right: 8vw;
+}
+.fab-container {
+    bottom: 4vh!important;
+    right: 4vw!important;
+}
+.fab-item:nth-last-child(1) {
+    -webkit-transition-delay: 25ms;
+    transition-delay: 25ms;
+    background-size: contain;
+}
+
+.fab-item {
+    box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+    border-radius: 50%;
+    border-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    margin: 20px auto 0;
+    position: relative;
+    -webkit-transition: transform .1s ease-out, height 100ms ease, opacity 100ms ease;
+    transition: transform .1s ease-out, height 100ms ease, opacity 100ms ease;
+    text-decoration: none;
+}

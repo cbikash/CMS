@@ -14,9 +14,9 @@ class SliderController extends Controller
      *
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function index()
+    public function index($type)
     {
-        return SliderResource::Collection(Slider::latest()->get());
+        return SliderResource::Collection(Slider::where('type','=',$type)->get());
 
     }
 

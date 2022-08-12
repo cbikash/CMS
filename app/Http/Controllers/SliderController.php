@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Constant\Constant;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 class SliderController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -18,9 +21,25 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::all();
+        $type = Constant::$TYPE_SLIDER;
+
+        $sliders = Slider::where('type','=', $type)->get();
         return view('admin.slider.index', compact('sliders'));
     }
+    public function indexPlace(){
+        $type = Constant::$TYPE_PLACE;
+        $sliders = Slider::where('type','=', $type)->get();
+        DB::table('sliders')
+            ->where('type', '=', $type)
+            ->get();
+        return view('admin.places.index', compact('sliders'));
+    }
+    public function createPlace(){
+
+        return view('admin.places.create');
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -41,7 +60,9 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [ 'description'   => 'required',
-                                    'image'         => 'required']);
+                                    'image'         => 'required',
+                                    'type' => 'required'
+            ]);
         $slider = new Slider;
         $slider->description = $request->description;
         if($file=$request->file('image')){
@@ -56,8 +77,14 @@ class SliderController extends Controller
         }
 
         $slider->user_id = Auth::user()->id;
+        $slider->type = $request->type;
         $slider->save();
-        return redirect('/admin/slider');
+        $route = route('slider.index');
+        if($request->type == '202'){
+            $route = route('places');
+        }
+
+        return redirect($route);
 
     }
 

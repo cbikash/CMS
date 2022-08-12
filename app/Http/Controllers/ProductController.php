@@ -38,8 +38,6 @@ class ProductController extends Controller
 
             $input['coverImage']=$filename;
         }
-
-       
         Product::create($input);
         return redirect(route('product.index'));
     }

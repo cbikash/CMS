@@ -36,6 +36,11 @@ Route::group(['middleware'=>'auth'], function (){
     Route::resource('/admin/testimonial',\App\Http\Controllers\TestimonialController::class);
     Route::post('/admin/change-password',[\App\Http\Controllers\HomeController::class,'changePassword'])->name('change.password');
     Route::get('/admin/read/notification',[\App\Http\Controllers\EnquiryController::class,'readNotification'])->name('admin.read.notification');
+    Route::resource('/admin/event',\App\Http\Controllers\EventController::class);
+    Route::resource('/admin/image',\App\Http\Controllers\ImageController::class);
+    Route::get('/admin/place', [\App\Http\Controllers\SliderController::class,'indexPlace'])->name('places');
+    Route::get('/admin/place/create', [\App\Http\Controllers\SliderController::class,'createPlace'])->name('places.create');
+
 });
 
 

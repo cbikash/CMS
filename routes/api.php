@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/about', [AboutController::class,'index']);
 Route::get('/about/{type}',[AboutController::class,'show']);
 Route::get('/faq', [\App\Http\Controllers\PublicController\FAQController::class,'index']);
-Route::get('/slider', [\App\Http\Controllers\PublicController\SliderController::class, 'index']);
+Route::get('/slider/{type}', [\App\Http\Controllers\PublicController\SliderController::class, 'index']);
 Route::get('/blog', [AboutController::class,'blogList']);
 Route::get('/blog/{id}',[AboutController::class,'singleBlog']);
 Route::get('/team', [\App\Http\Controllers\PublicController\TeamController::class,'index']);
@@ -31,5 +31,8 @@ Route::post('/contact', [\App\Http\Controllers\PublicController\ContactControlle
 Route::post('/subscribe',[\App\Http\Controllers\SubscribeController::class,'store']);
 Route::post('/apply',[\App\Http\Controllers\PublicController\ContactController::class,'enquery']);
 Route::get('/list/course',[\App\Http\Controllers\PublicController\AboutController::class,'coursesList']);
+Route::get('/list/events',[\App\Http\Controllers\PublicController\AboutController::class,'events'])->name('eventsList');
+Route::get('/list/events/list',[\App\Http\Controllers\PublicController\AboutController::class,'events']);
+
 
 

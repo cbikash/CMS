@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSlidersTable extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateSlidersTable extends Migration
      */
     public function up()
     {
-        Schema::create('sliders', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->longText('description');
-            $table->integer('type');
-            $table->string('image');
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->string('name');
+            $table->string('url');
             $table->timestamps();
         });
     }
@@ -30,7 +28,7 @@ class CreateSlidersTable extends Migration
      */
     public function down()
     {
-        Schema::table('sliders', function (Blueprint $table) {
+        Schema::table('images', function (Blueprint $table) {
             //
         });
     }

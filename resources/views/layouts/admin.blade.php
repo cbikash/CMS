@@ -21,6 +21,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Noto+Sans+JP:wght@100;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.11.2,npm/fullcalendar@5.11.2/main.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.11.2/main.min.css,npm/fullcalendar@5.11.2/main.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
     <script>
         $(document).ready(function() {
             $("#hide-sidebar").click(function() {
@@ -63,6 +68,17 @@
                     <a class="nav-link" href="{{route('enquiry.index')}}">
                         <i class="fas fa-inbox text-secondary icon-nav"></i>
                         <span>Enquiry</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('event.index')}}">
+                        <i class="fas fa-book text-info icon-nav"></i>
+
+                        <span>Event</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('image.index')}}">
+                        <i class="fa fa-solid fa-file-image icon-nav"></i>
+                        <span>Media</span></a>
                 </li>
                 <!-- <hr class="sidebar-divider"> -->
                 {{-- <li class="nav-item">--}}
@@ -162,7 +178,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseblog" aria-expanded="true" aria-controls="collapseTwo1">
-                        <i class="fas fa-angle-double-right text-primary"></i>
+                        <i class="fas fa-angle-double-right text-info"></i>
                         <span>Blog</span>
                     </a>
                     <div id="collapseblog" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -175,7 +191,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseoneslider" aria-expanded="true" aria-controls="collapseTwo1">
-                        <i class="fas fa-angle-double-right text-primary"></i>
+                        <i class="fas fa-angle-double-right text-danger"></i>
                         <span>Slider</span>
                     </a>
                     <div id="collapseoneslider" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -187,8 +203,21 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseoneplaces" aria-expanded="true" aria-controls="collapseTwo1">
+                        <i class="fas fa-angle-double-right text-danger"></i>
+                        <span>Places</span>
+                    </a>
+                    <div id="collapseoneplaces" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="py-2 collapse-inner rounded">
+                            <a class="collapse-item" href=" {{route('places')}} ">Places</a>
+                            <a class="collapse-item" href=" {{route('places.create')}} ">Add Places</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#oneteam" aria-expanded="true" aria-controls="collapseTwo1">
-                        <i class="fas fa-angle-double-right text-primary"></i>
+                        <i class="fas fa-angle-double-right text-secondary"></i>
                         <span>Team</span>
                     </a>
                     <div id="oneteam" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -214,7 +243,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsetestimonial" aria-expanded="true" aria-controls="collapseTwo1">
-                        <i class="fas fa-angle-double-right text-primary"></i>
+                        <i class="fas fa-angle-double-right text-info"></i>
                         <span>Testimonial</span>
                     </a>
                     <div id="collapsetestimonial" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -554,6 +583,9 @@
     <script src="{{asset('admin/assets/js/jquery.easing.min.js')}} "></script>
     <!-- Custom scripts for all pages-->
     <script src="{{asset('admin/ assets/js/sb-admin-2.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    @yield('scripts')
 </body>
 
 </html>
