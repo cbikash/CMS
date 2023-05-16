@@ -1,26 +1,28 @@
 @extends('layouts.admin')
 @section('content')
-    <style>
-        .col-space{
-            background-color: rgb(255, 255, 255);
-            padding: 30px;
-        }
-    </style>
-    <div class="row">
-        <div class="container">
+<style>
+    .col-space {
+        background-color: rgb(255, 255, 255);
+        padding: 30px;
+    }
+</style>
+<div class="row">
+    <div class="container">
         <div class="col-sm-12 col-lg-12 col-xl-12">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
-                <li class="breadcrumb-item"><a href=" {{ route('service.index') }} ">Manufacture</a></li>
-                <li class="breadcrumb-item active " aria-current="page">Add Manufacture</li>
-            </ol>
-        </nav>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
+                    <li class="breadcrumb-item"><a href=" {{ route('service.index') }} ">Manufacture</a></li>
+                    <li class="breadcrumb-item active " aria-current="page">Add Manufacture</li>
+                </ol>
+            </nav>
         </div>
-            <div class="col-md-12 col-space">
-                <h3>Add Manufacture</h3>
-                <hr>
-                {!! Form::open(['method'=>'PUT','action'=>['App\Http\Controllers\ManufactureController@update',$manufacture],'files'=>true])!!}
+        <div class="col-md-12 col-space">
+            <h3>Add Manufacture</h3>
+            <hr>
+            <form method="POST" action="{{ route('manufacture.update', $manufacture) }}" accept-charset="UTF-8" enctype="multipart/form-data">
+                <input name="_method" type="hidden" value="PATCH">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <input type="text" name="title" class="form-control" id="inputEmail4" value="{{$manufacture->title}}" placeholder="Enter Service Title">
@@ -47,9 +49,12 @@
                     @enderror
                 </div>
 
-                {!! Form::submit('Update Manufacture',['class'=>'btn btn-success shadow']) !!}
-                {!! Form::close() !!}
-            </div>
+                <br>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success shadow" />
+                </div>
+            </form>
         </div>
     </div>
+</div>
 @endsection

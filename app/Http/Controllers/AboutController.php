@@ -63,7 +63,9 @@ class AboutController extends Controller
 
     public function update(Request $request, About $about)
     {
+        
         $this->validate($request, [ 'title' => 'required', 'content' => 'required' ]);
+        
         $about->title = $request->title;
         $about->content = $request->description;
         $about->home = $request->home;

@@ -1,30 +1,31 @@
 @extends('layouts.admin')
 @section('content')
 <style>
-    .col-space{
+    .col-space {
         background-color: rgb(255, 255, 255);
         padding: 30px;
     }
 </style>
 <div class="row">
     <div class="container">
-          <div class="col-sm-12 col-lg-12 col-xl-12">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
-                <li class="breadcrumb-item"><a href=" {{ route('places') }} ">Places</a></li>
-                <li class="breadcrumb-item active " aria-current="page">Add Places</li>
-            </ol>
-        </nav>
+        <div class="col-sm-12 col-lg-12 col-xl-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
+                    <li class="breadcrumb-item"><a href=" {{ route('places') }} ">Places</a></li>
+                    <li class="breadcrumb-item active " aria-current="page">Add Places</li>
+                </ol>
+            </nav>
         </div>
 
         <div class="col-md-12 col-space">
             <h3>Add Place</h3>
             <hr>
-              {!! Form::open(['method'=>'post','action'=>'App\Http\Controllers\SliderController@store','files'=>true])!!}
+            <form method="POST" action="{{ route('slider.store') }}" accept-charset="UTF-8" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div class="form-group">
                     <input type="hidden" name="type" value="202">
-                    <label for="">Choose  Image</label>
+                    <label for="">Choose Image</label>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" name="image" value="{{old('image')}}" id="customFile" required>
                         <label class="custom-file-label" for="customFile">Choose file</label>
@@ -40,11 +41,12 @@
                     <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
                     @enderror
                 </div>
-
-                {!! Form::submit('Add Place',['class'=>'btn btn-primary shadow']) !!}
-                {!! Form::close() !!}
+                <br>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success shadow" />
+                </div>
+            </form>
         </div>
     </div>
 </div>
 @endsection
-
