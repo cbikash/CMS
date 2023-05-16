@@ -21,8 +21,11 @@
         <div class="col-md-12 col-space">
             <h3>Update Testimonial</h3>
             <hr>
-              {!! Form::open(['method'=>'put','action'=>['App\Http\Controllers\TestimonialController@update',$testimonial],'files'=>true])!!}
-              @csrf
+            <form method="POST" action="{{ route('testimonial.update', $testimonial) }}" accept-charset="UTF-8" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
+                <input name="_method" type="hidden" value="PATCH">
+
                 <div class="form-row">
                     <div class="form-group col-md-6">
                     <label for="inputEmail4">Name</label>
@@ -58,9 +61,11 @@
                     <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
                     @enderror
                 </div>
-                
-                {!! Form::submit('Update Testimonial',['class'=>'btn btn-primary shadow']) !!}
-                {!! Form::close() !!}
+                <br>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success shadow" />
+                </div>
+            </form>
         </div>
     </div>
 </div>

@@ -21,7 +21,10 @@
                 <h3>Update Category</h3>
                 <hr>
 
-                {!! Form::open(['method'=>'PUT','action'=>['App\Http\Controllers\EventController@update',$event],'files'=>true,'class'=>'eventForm'])!!}
+                <form method="POST" action="{{ route('event.update', $event) }}" accept-charset="UTF-8" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
+                <input name="_method" type="hidden" value="PATCH">
 
                 <div class="form-group row">
                     <div class="col-sm-12">

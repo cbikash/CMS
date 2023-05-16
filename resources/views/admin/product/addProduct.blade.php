@@ -21,7 +21,8 @@
         <div class="col-md-12 col-space">
             <h3>Add Course</h3>
             <hr>
-              {!! Form::open(['method'=>'post','action'=>'App\Http\Controllers\ProductController@store','files'=>true])!!}
+            <form method="POST" action="{{ route('product.store') }}" accept-charset="UTF-8" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div class="form-row">
                     <div class="form-group col-md-12">
                     <label for="inputEmail4">Course Title</label>
@@ -51,8 +52,9 @@
                     @enderror
                 </div>
                 
-                {!! Form::submit('Add Product',['class'=>'btn btn-primary shadow']) !!}
-                {!! Form::close() !!}
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success shadow" />
+                </div>
         </div>
     </div>
 </div>

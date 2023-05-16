@@ -45,10 +45,13 @@
                             <td><img src="{{asset('storage/gallery/images/'.$image->name)}}" class="img-fluid" width="100" alt=""></td>
                             <td><input type="hidden"><a data-url="{{asset('storage/gallery/images/'.$image->name)}}" id="copyImgurl" data-toggle="tooltip" data-placement="top" title="copy image url"><i style="font-size: 20px;" class="fa fa-cp text-info fa-regular fa-copy"></i></a></td>
                             <td>
-                                {!! Form::open(['method'=>'DELETE', 'action'=>['App\Http\Controllers\ImageController@destroy', $image]]) !!}
-                                @csrf
-                                <button CLASS="btn text-danger"><i class="fas fa-trash"></i></button>
-                                {!! Form::close() !!}
+                            <form method="POST" action="{{ route('image.destroy', $image) }}" accept-charset="UTF-8" enctype="multipart/form-data">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
+                                    <input name="_method" type="hidden" value="DELETE">
+
+                                    <button CLASS="btn"><i class="fas fa-trash"></i></button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

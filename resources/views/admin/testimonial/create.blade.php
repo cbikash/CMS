@@ -1,39 +1,39 @@
 @extends('layouts.admin')
 @section('content')
 <style>
-    .col-space{
+    .col-space {
         background-color: rgb(255, 255, 255);
         padding: 30px;
     }
 </style>
 <div class="row">
     <div class="container">
-          <div class="col-sm-12 col-lg-12 col-xl-12">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
-                <li class="breadcrumb-item"><a href=" {{ route('testimonial.index') }} ">Testimonial</a></li>
-                <li class="breadcrumb-item active " aria-current="page">Create Testimonial</li>
-            </ol>
-        </nav>
+        <div class="col-sm-12 col-lg-12 col-xl-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href=" {{ route('home') }} ">Home</a></li>
+                    <li class="breadcrumb-item"><a href=" {{ route('testimonial.index') }} ">Testimonial</a></li>
+                    <li class="breadcrumb-item active " aria-current="page">Create Testimonial</li>
+                </ol>
+            </nav>
         </div>
-        
+
         <div class="col-md-12 col-space">
             <h3>Add Testimonial</h3>
             <hr>
-              {!! Form::open(['method'=>'post','action'=>'App\Http\Controllers\TestimonialController@store','files'=>true])!!}
-              @csrf
+            <form method="POST" action="{{ route('testimonial.store') }}" accept-charset="UTF-8" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                    <label for="inputEmail4">Name</label>
-                    <input type="text" name="name" class="form-control" id="inputEmail4" value="{{old('name')}}" placeholder="Enter Name">
+                        <label for="inputEmail4">Name</label>
+                        <input type="text" name="name" class="form-control" id="inputEmail4" value="{{old('name')}}" placeholder="Enter Name">
                         @error('name')
                         <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
                         @enderror
                     </div>
                     <div class="form-group col-md-6">
-                    <label for="inputPassword4">Post</label>
-                    <input type="text" name="post_of" class="form-control" value="{{old('post_of')}}"  placeholder="Enter Post">
+                        <label for="inputPassword4">Post</label>
+                        <input type="text" name="post_of" class="form-control" value="{{old('post_of')}}" placeholder="Enter Post">
                         @error('post_of')
                         <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
                         @enderror
@@ -58,9 +58,11 @@
                     <small class="form-text text-danger" style="font-size: 17px">{{$message}}</small>
                     @enderror
                 </div>
-                
-                {!! Form::submit('Add Testimonial',['class'=>'btn btn-primary shadow']) !!}
-                {!! Form::close() !!}
+                <br>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success shadow" />
+                </div>
+            </form>
         </div>
     </div>
 </div>
