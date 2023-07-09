@@ -18,7 +18,7 @@ class CreateSlidersTable extends Migration
             $table->longText('description');
             $table->integer('type');
             $table->string('image');
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }
@@ -30,8 +30,6 @@ class CreateSlidersTable extends Migration
      */
     public function down()
     {
-        Schema::table('sliders', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('sliders');
     }
 }

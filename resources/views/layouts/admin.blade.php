@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>MINNANO DAISUKI</title>
+    <title>CMS</title>
     <link rel="icon" href="{{asset('admin/logo_small.jpg')}}" />
     <!-- Custom fonts for this template-->
     <link href=" {{asset('admin/assets/css/all.min.css')}} " rel="stylesheet" type="text/css">
@@ -47,7 +47,7 @@
                 <!-- Sidebar - Brand -->
                 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('home')}}">
                     <div class="sidebar-brand-icon ">
-                        MINNANO DAISUKI
+                        CMS
                     </div>
                 </a>
 
@@ -81,19 +81,19 @@
                         <span>Media</span></a>
                 </li>
                 <!-- <hr class="sidebar-divider"> -->
-                {{-- <li class="nav-item">--}}
-                {{-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoc"--}}
-                {{-- aria-expanded="true" aria-controls="collapseTwo1">--}}
-                {{-- <i class="fas fa-angle-double-right text-info"></i>--}}
-                {{-- <span>Category</span>--}}
-                {{-- </a>--}}
-                {{-- <div id="collapseTwoc" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">--}}
-                {{-- <div class="py-2 collapse-inner rounded">--}}
-                {{-- <a class="collapse-item" href=" {{route('category.index')}} ">Category</a>--}}
-                {{-- <a class="collapse-item" href=" {{route('category.create')}} ">Add Category</a>--}}
-                {{-- </div>--}}
-                {{-- </div>--}}
-                {{-- </li>--}}
+                 <li class="nav-item">
+                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoc"
+                 aria-expanded="true" aria-controls="collapseTwo1">
+                 <i class="fas fa-angle-double-right text-info"></i>
+                 <span>Category</span>
+                 </a>
+                 <div id="collapseTwoc" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                 <div class="py-2 collapse-inner rounded">
+                 <a class="collapse-item" href=" {{route('category.index')}} ">Category</a>
+                 <a class="collapse-item" href=" {{route('category.create')}} ">Add Category</a>
+                 </div>
+                 </div>
+                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -253,7 +253,6 @@
                         </div>
                     </div>
                 </li>
-
             </ul>
 
         </div>
