@@ -41,6 +41,8 @@
                             <td>{{$category->slug}}</td>
                             <td>
                                 <a href="{{route('category.edit', $category)}}" class="text-info"> <i class="fas fa-pencil-alt"></i></a>
+                                <i class="fas fa-folder-tree"></i>
+                                <a href="{{route('sub.category.index', $category)}}">sub-category</a>
                             </td>
                             <td>
                                 <form method="POST" action="{{ route('category.destroy', $category) }}" accept-charset="UTF-8" enctype="multipart/form-data">

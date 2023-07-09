@@ -18,7 +18,9 @@ class CreateCategoriesTable extends Migration
             $table->string('slug');
             $table->string('name');
             $table->integer('deleted')->default('0');
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id');
+            $table->unsignedBigInteger('parent_id')->nullable();
+            $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

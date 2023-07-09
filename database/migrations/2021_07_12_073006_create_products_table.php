@@ -20,6 +20,9 @@ class CreateProductsTable extends Migration
             $table->longText('description');
             $table->string('slug')->unique();
             $table->integer('deleted')->default('0');
+            $table->float('price')->nullable(true);
+            $table->float('discountPrice')->nullable(true);
+            $table->boolean('isDiscount')->default(false);
             $table->timestamps();
         });
     }
