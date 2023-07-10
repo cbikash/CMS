@@ -17,6 +17,19 @@ class CategoryController extends Controller
         return view('admin.category.add');
     }
 
+
+    public function indexToJson()
+    {
+        $categories = Category::select('id', 'name as text', 'slug')
+            ->with(['children' => function ($query) {
+                $query->select('id', 'name as text', 'slug', 'parent_id');
+            }])
+            ->whereNull('parent_id')
+            ->get();
+
+        return  response()->json($categories);
+    }
+
     public function store(Request $request){
         $this->validate($request, ['name'=>'required|unique:categories']);
         $request['slug']=Str::slug($request['name']);

@@ -24,6 +24,14 @@ class ProductController extends Controller
         return view('admin.product.addProduct',compact('categories'));
     }
     public function store(ProductRequest $productRequest){
+
+        $categories = Category::select('id', 'name as text', 'slug')
+            ->with(['children' => function ($query) {
+                $query->select('id', 'name as text', 'slug', 'parent_id');
+            }])
+            ->whereNull('parent_id')
+            ->get();
+
         $input=$productRequest->all();
         $input['user_id']=Auth::id();
         $input['slug'] = Str::slug($productRequest->title);
@@ -47,7 +55,7 @@ class ProductController extends Controller
     }
 
     public function show(Product $product){
-        return view('admin.product.detailsProduct',compact('product'));
+        return view('admin.product.detailsProduct',compact('product', 'categories'));
     }
 
 

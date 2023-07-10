@@ -25,7 +25,6 @@ class ProductRequest extends FormRequest
     {
         return [
             'title' => 'max:100|required',
-            'description' => 'required',
             'coverImage' =>'image|mimes:jpeg,png,bmp,gif, or svg',
             'slug' => 'unique:products',
         ];

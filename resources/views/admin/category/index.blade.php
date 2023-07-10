@@ -23,14 +23,13 @@
         <div class="body-content">
             <div class="table-responsive">
 
-                <table class="table table-hover ">
-                    <thead class="thead-custom">
+                <table class="table table-hover custom-table ">
+                    <thead class="bg-table-head ">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Title</th>
                             <th scope="col">slug</th>
                             <th scope="col">Action</th>
-                            <th scope="col">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,25 +40,16 @@
                             <td>{{$category->slug}}</td>
                             <td>
                                 <a href="{{route('category.edit', $category)}}" class="text-info"> <i class="fas fa-pencil-alt"></i></a>
-                                <i class="fas fa-folder-tree"></i>
+                                <i class="fas fa-diagram-nested"></i>
+                                <i class="fa-solid fa-network-wired"></i>
                                 <a href="{{route('sub.category.index', $category)}}">sub-category</a>
+                                <a href="#" class="text-danger" id="delete" data-url="{{ route('category.destroy', $category)  }}"><i class="fas fa-trash"></i> </a>
                             </td>
-                            <td>
-                                <form method="POST" action="{{ route('category.destroy', $category) }}" accept-charset="UTF-8" enctype="multipart/form-data">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-
-                                    <input name="_method" type="hidden" value="DELETE">
-
-                                    <button CLASS="btn"><i class="fas fa-trash"></i></button>
-                                </form>
-                            </td>
-
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
-
 
         </div>
         <div class="pagination-custom">

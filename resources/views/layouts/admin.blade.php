@@ -14,6 +14,7 @@
     <link href="{{asset('admin/assets/css/css.css')}} " rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Custom styles for this template-->
     <link href="{{asset('admin/assets/css/sb-admin-2.min.css')}} " rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -26,12 +27,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
     <script>
         $(document).ready(function() {
             $("#hide-sidebar").click(function() {
                 $(".side-barhide").toggle();
             });
-
         });
     </script>
 </head>
@@ -51,6 +54,7 @@
                     </div>
                 </a>
 
+
                 <!-- Divider -->
                 <hr class="sidebar-divider my-0">
                 <li class="nav-item">
@@ -58,52 +62,37 @@
                         <i class="fas fa-fw fa-tachometer-alt text-info icon-nav"></i>
                         <span>Dashboard</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('message.index')}}">
-                        <i class="fas fa-envelope text-primary icon-nav"></i>
-                        <span>Message</span></a>
-                </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('enquiry.index')}}">
-                        <i class="fas fa-inbox text-secondary icon-nav"></i>
-                        <span>Enquiry</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('event.index')}}">
-                        <i class="fas fa-book text-info icon-nav"></i>
-
-                        <span>Event</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('image.index')}}">
-                        <i class="fa fa-solid fa-file-image icon-nav"></i>
-                        <span>Media</span></a>
-                </li>
-                <!-- <hr class="sidebar-divider"> -->
-                 <li class="nav-item">
-                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoc"
-                 aria-expanded="true" aria-controls="collapseTwo1">
-                 <i class="fas fa-angle-double-right text-info"></i>
-                 <span>Category</span>
-                 </a>
-                 <div id="collapseTwoc" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                 <div class="py-2 collapse-inner rounded">
-                 <a class="collapse-item" href=" {{route('category.index')}} ">Category</a>
-                 <a class="collapse-item" href=" {{route('category.create')}} ">Add Category</a>
-                 </div>
-                 </div>
-                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-hotdog text-danger"></i>
-                        <span>Courses</span>
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseComp" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-cog text-danger"></i>
+                        <span>component</span>
                     </a>
-                    <div id="collapseTwo" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div id="collapseComp" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="py-2 collapse-inner rounded">
-                            <a class="collapse-item" href=" {{route('product.index')}} ">Courses</a>
-                            <a class="collapse-item" href=" {{route('product.create')}} ">Add Course</a>
+                            <a class="collapse-item" href="{{route('message.index')}}">
+                                <span>Message</span></a>
+                            <a class="collapse-item" href="{{route('enquiry.index')}}">
+                                <span>Enquiry</span></a>
+                            <a class="collapse-item" href="{{route('event.index')}}">
+
+                                <span>Event</span></a>
+                            <a class="collapse-item" href="{{route('image.index')}}">
+                                <span>Media</span></a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- <hr class="sidebar-divider"> -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoc" aria-expanded="true" aria-controls="collapseTwo1">
+                        <i class="fas fa-fw fa-table text-info"></i>
+                        <span>Manage Product</span>
+                    </a>
+                    <div id="collapseTwoc" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="py-2 collapse-inner rounded">
+                            <a class="collapse-item" href=" {{route('category.index')}} ">Category</a>
+                            <a class="collapse-item" href=" {{route('product.index')}} ">Product</a>
                         </div>
                     </div>
                 </li>
@@ -124,13 +113,19 @@
 
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoab" aria-expanded="true" aria-controls="collapseTwo1">
-                        <i class="fas fa-angle-double-right text-secondary"></i>
-                        <span>About</span>
+                        <i class="fas fa-fw fa-chart-area text-secondary"></i>
+                        <span>CMS</span>
                     </a>
                     <div id="collapseTwoab" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="py-2 collapse-inner rounded">
                             <a class="collapse-item" href=" {{route('about.index')}} ">About</a>
-                            <a class="collapse-item" href=" {{route('about.create')}} ">Add About</a>
+                            <a class="collapse-item" href=" {{route('faq.index')}} ">Faq</a>
+                            <a class="collapse-item" href=" {{route('slider.index')}} ">Slider</a>
+                            <a class="collapse-item" href=" {{route('client.index')}} ">Client</a>
+                            <a class="collapse-item" href=" {{route('testimonial.index')}} ">Testimonial</a>
+                            <a class="collapse-item" href=" {{route('blog.index')}} ">Blog</a>
+                            <a class="collapse-item" href=" {{route('team.index')}} ">Team</a>
+
                         </div>
                     </div>
                 </li>
@@ -149,18 +144,6 @@
                 {{-- </div>--}}
                 {{-- </li>--}}
 
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsefaq" aria-expanded="true" aria-controls="collapseTwo1">
-                        <i class="fas fa-angle-double-right text-primary"></i>
-                        <span>Faq</span>
-                    </a>
-                    <div id="collapsefaq" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="py-2 collapse-inner rounded">
-                            <a class="collapse-item" href=" {{route('faq.index')}} ">Faq</a>
-                            <a class="collapse-item" href=" {{route('faq.create')}} ">Add Faq</a>
-                        </div>
-                    </div>
-                </li>
 
                 {{-- <li class="nav-item">--}}
                 {{-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#project"--}}
@@ -176,83 +159,42 @@
                 {{-- </div>--}}
                 {{-- </li>--}}
 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseblog" aria-expanded="true" aria-controls="collapseTwo1">
                         <i class="fas fa-angle-double-right text-info"></i>
                         <span>Blog</span>
                     </a>
                     <div id="collapseblog" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="py-2 collapse-inner rounded">
-                            <a class="collapse-item" href=" {{route('blog.index')}} ">Blog</a>
                             <a class="collapse-item" href=" {{route('blog.create')}} ">Add Blog</a>
                         </div>
                     </div>
-                </li>
+                </li> -->
 
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseoneslider" aria-expanded="true" aria-controls="collapseTwo1">
-                        <i class="fas fa-angle-double-right text-danger"></i>
-                        <span>Slider</span>
-                    </a>
-                    <div id="collapseoneslider" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="py-2 collapse-inner rounded">
-                            <a class="collapse-item" href=" {{route('slider.index')}} ">Slider</a>
-                            <a class="collapse-item" href=" {{route('slider.create')}} ">Add Slider</a>
-                        </div>
-                    </div>
-                </li>
+                {{-- <li class="nav-item">--}}
+                {{-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseoneplaces" aria-expanded="true" aria-controls="collapseTwo1">--}}
+                {{-- <i class="fas fa-angle-double-right text-danger"></i>--}}
+                {{-- <span>Places</span>--}}
+                {{-- </a>--}}
+                {{-- <div id="collapseoneplaces" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">--}}
+                {{-- <div class="py-2 collapse-inner rounded">--}}
+                {{-- <a class="collapse-item" href=" {{route('places')}} ">Places</a>--}}
+                {{-- <a class="collapse-item" href=" {{route('places.create')}} ">Add Places</a>--}}
+                {{-- </div>--}}
+                {{-- </div>--}}
+                {{-- </li>--}}
 
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseoneplaces" aria-expanded="true" aria-controls="collapseTwo1">
-                        <i class="fas fa-angle-double-right text-danger"></i>
-                        <span>Places</span>
-                    </a>
-                    <div id="collapseoneplaces" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="py-2 collapse-inner rounded">
-                            <a class="collapse-item" href=" {{route('places')}} ">Places</a>
-                            <a class="collapse-item" href=" {{route('places.create')}} ">Add Places</a>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#oneteam" aria-expanded="true" aria-controls="collapseTwo1">
                         <i class="fas fa-angle-double-right text-secondary"></i>
                         <span>Team</span>
                     </a>
                     <div id="oneteam" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="py-2 collapse-inner rounded">
-                            <a class="collapse-item" href=" {{route('team.index')}} ">Team</a>
                             <a class="collapse-item" href=" {{route('team.create')}} ">Add Team</a>
                         </div>
                     </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseclient" aria-expanded="true" aria-controls="collapseTwo1">
-                        <i class="fas fa-angle-double-right text-primary"></i>
-                        <span>Client</span>
-                    </a>
-                    <div id="collapseclient" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="py-2 collapse-inner rounded">
-                            <a class="collapse-item" href=" {{route('client.index')}} ">Client</a>
-                            <a class="collapse-item" href=" {{route('client.create')}} ">Add Client</a>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsetestimonial" aria-expanded="true" aria-controls="collapseTwo1">
-                        <i class="fas fa-angle-double-right text-info"></i>
-                        <span>Testimonial</span>
-                    </a>
-                    <div id="collapsetestimonial" class="collapse bg-custom" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="py-2 collapse-inner rounded">
-                            <a class="collapse-item" href=" {{route('testimonial.index')}} ">Testimonial</a>
-                            <a class="collapse-item" href=" {{route('testimonial.create')}} ">Add Testimonial</a>
-                        </div>
-                    </div>
-                </li>
+                </li> -->
             </ul>
 
         </div>
@@ -262,7 +204,7 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <button class="btn btn-custom" id="sidebarToggle"><svg class="btn-font" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-text-indent-left" viewBox="0 0 16 16">
                             <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
-                        </svg></i></button>
+                        </svg></button>
                     <button class="btn btn-custom" id="hide-sidebar">
                         <svg class="btn-font btn-font2" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z" />
@@ -529,7 +471,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Bikas chaudhary {{\Carbon\Carbon::now()->format('Y') }} (+977 9845969704)</span>
+                        <span>Copyright &copy; CMS {{\Carbon\Carbon::now()->format('Y') }} (+977 9845969704)</span>
                     </div>
                 </div>
             </footer>
@@ -581,10 +523,38 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="{{asset('admin/assets/js/jquery.easing.min.js')}} "></script>
     <!-- Custom scripts for all pages-->
-    <script src="{{asset('admin/ assets/js/sb-admin-2.min.js')}}"></script>
+    <script src="{{asset('admin/assets/js/sb-admin-2.min.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     @yield('scripts')
+
+
+    {{-- delete block   --}}
+    <script>
+        $(document).ready(function() {
+            $('#delete').on('click', function(e) {
+
+                e.preventDefault();
+                let url = $('#delete').data('url');
+
+                let message = 'Are you sure you want to delete this?';
+                if (!confirm(message)) {
+                    return;
+                }
+                $.post(`${url}`, {
+                        _method: 'DELETE',
+                        _token: $('meta[name="csrf-token"]').attr('content')
+                    })
+                    .done(function(response) {
+                        location.reload();
+                    })
+                    .fail(function(xhr, status, error) {
+                        // Handle the error response
+                    });
+            })
+        });
+    </script>
 </body>
 
 </html>

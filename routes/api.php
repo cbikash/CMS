@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/about', [AboutController::class,'index']);
+Route::get('/categories', [\App\Http\Controllers\CategoryController::class,'indexToJson']);
 Route::get('/about/{type}',[AboutController::class,'show']);
 Route::get('/faq', [\App\Http\Controllers\PublicController\FAQController::class,'index']);
 Route::get('/slider/{type}', [\App\Http\Controllers\PublicController\SliderController::class, 'index']);

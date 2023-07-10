@@ -43,14 +43,9 @@
                                 <p>{{ $faq->answer }}</p>
                             </td>
                             <td>
-                                <a href="{{route('faq.edit', $faq)}}"> <button CLASS="btn text-info"><i class="fas fa-pencil-alt"> </i> </button></a>
-                                <form method="POST" action="{{ route('faq.destroy', $faq) }}" accept-charset="UTF-8" enctype="multipart/form-data">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                <a href="{{route('faq.edit', $faq)}}" class="text-info"> <i class="fas fa-pencil-alt"></i></a>
+                                <a href="#" class="text-danger" id="delete" data-url="{{ route('faq.destroy', $faq)   }}"><i class="fas fa-trash"></i> </a>
 
-                                    <input name="_method" type="hidden" value="DELETE">
-
-                                    <button CLASS="btn"><i class="fas fa-trash"></i></button>
-                                </form>
                             </td>
 
                         </tr>
