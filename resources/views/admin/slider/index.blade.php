@@ -35,13 +35,7 @@
                             <td><img src="{{asset('storage/gallery/slider/'.$slider->image)}}" class="img-fluid" height="50" width="150" alt=""></td>
                             <td>{{ Str::limit($slider->description, 50)}}</td>
                             <td>
-                                <form method="POST" action="{{ route('slider.destroy', $slider) }}" accept-charset="UTF-8" enctype="multipart/form-data">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-
-                                    <input name="_method" type="hidden" value="DELETE">
-
-                                    <button CLASS="btn"><i class="fas fa-trash"></i></button>
-                                </form>
+                                <a href="#" class="text-danger" id="delete" data-url="{{ route('slider.destroy', $slider) }}  }}"><i class="fas fa-trash"></i> </a>
                             </td>
                         </tr>
                         @endforeach

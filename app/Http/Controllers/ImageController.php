@@ -42,10 +42,6 @@ class ImageController extends Controller
     {
 
         $image = $request->file('file');
-
-//        $imageName = time().'.'.$image->extension();
-//        $image->move(public_path('images'),$imageName);
-//
         if($file=$request->file('file')){
             $imageName = time().'.'.$image->extension();
             $path= \Intervention\Image\Facades\Image::make($file->getRealPath());

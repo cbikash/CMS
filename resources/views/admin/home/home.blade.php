@@ -1,15 +1,20 @@
 @extends('layouts.admin')
 @section('content')
 
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> </a>
+    </div>
 <div class="boxes">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="box">
 
                 <div class="row">
                     <div class="col">
                         <div class="box-header">
-                            <h5>Courses</h5>
+                            <h5>Products</h5>
                         </div>
                         <div class="box-content">
                             <p class="text-info"><a href="{{route('product.index')}}">{{$product}}</a> </p>
@@ -23,7 +28,7 @@
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="box">
 
                 <div class="row">
@@ -43,7 +48,7 @@
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="box">
 
                 <div class="row">
@@ -82,7 +87,7 @@
         {{-- </div>--}}
         {{-- </div>--}}
         {{-- </div>--}}
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="box">
 
                 <div class="row">
@@ -97,25 +102,6 @@
 
                     <div class="col">
                         <i class="fas fa-copy icon-box text-success"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="box">
-
-                <div class="row">
-                    <div class="col">
-                        <div class="box-header">
-                            <h5 class="text-danger">Total Service</h5>
-                        </div>
-                        <div class="box-content">
-                            <p class="text-danger"> <a href="{{route('service.index')}}">{{$service}}</a></p>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <i class="fas fa-copy icon-box text-danger"></i>
                     </div>
                 </div>
             </div>

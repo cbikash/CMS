@@ -30,7 +30,6 @@
                             <th scope="col">Address</th>
                             <th scope="col">Details</th>
                             <th scope="col">Action</th>
-                            <th scope="col">Delete</th>
 
                         </tr>
                     </thead>
@@ -50,15 +49,8 @@
                             <td>
                                 <a href="{{route('team.show', $team)}}" class="text-success"> <i class="fas fa-eye"></i></a>
                                 <a href="{{route('team.edit', $team)}}" class="text-info"> <i class="fas fa-pencil-alt"></i></a>
-                            </td>
-                            <td>
-                                <form method="POST" action="{{ route('team.destroy', $team) }}" accept-charset="UTF-8" enctype="multipart/form-data">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                <a href="#" class="text-danger" id="delete" data-url="{{  route('team.destroy', $team)  }}  }}"><i class="fas fa-trash"></i> </a>
 
-                                    <input name="_method" type="hidden" value="DELETE">
-
-                                    <button CLASS="btn"><i class="fas fa-trash"></i></button>
-                                </form>
                             </td>
 
                         </tr>

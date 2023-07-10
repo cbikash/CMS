@@ -38,13 +38,8 @@
                             <td>{{$client->url}} </td>
                             <td><img src="{{asset('storage/gallery/client/'.$client->image)}}" class="img-fluid" height="50" width="100" alt=""></td>
                             <td>
-                                <form method="POST" action="{{ route('client.destroy', $client) }}" accept-charset="UTF-8" enctype="multipart/form-data">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                <a href="#" class="text-danger" id="delete" data-url="{{  route('client.destroy', $client)  }}  }}"><i class="fas fa-trash"></i> </a>
 
-                                    <input name="_method" type="hidden" value="DELETE">
-
-                                    <button CLASS="btn"><i class="fas fa-trash"></i></button>
-                                </form>
                             </td>
 
                         </tr>

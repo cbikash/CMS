@@ -30,8 +30,6 @@
                             <th scope="col">Image</th>
                             <th scope="col">Type</th>
                             <th scope="col">Action</th>
-                            <th scope="col">Delete</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -46,15 +44,8 @@
                             <td>
                                 <a href="{{route('about.show', $about)}}" class="text-success"> <i class="fas fa-eye"></i></a>
                                 <a href="{{route('about.edit', $about)}}" class="text-info"> <i class="fas fa-pencil-alt"></i></a>
-                            </td>
-                            <td>
-                                <form method="POST" action="{{ route('about.destroy', $about) }}" accept-charset="UTF-8" enctype="multipart/form-data">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                <a href="#" class="text-danger" id="delete" data-url="{{ route('about.destroy', $about) }}"><i class="fas fa-trash"></i> </a>
 
-                                    <input name="_method" type="hidden" value="DELETE">
-
-                                    <button CLASS="btn"><i class="fas fa-trash"></i></button>
-                                </form>
                             </td>
 
                         </tr>
